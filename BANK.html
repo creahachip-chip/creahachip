@@ -1,0 +1,126 @@
+The banking portal provides a dashboard for managing fiat and crypto assets, simulating international wire transfers.l<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Commercial Bank of Creahachip</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #1f2937; }
+        .sidebar { background-color: #0A192F; }
+        .gold-accent { color: #D4AF37; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 sidebar text-white p-8 flex flex-col">
+        <h1 class="text-2xl font-bold mb-12">NCB <span class="gold-accent">BANK</span></h1>
+        <nav class="space-y-6 flex-1">
+            <a href="#" class="block text-sm font-semibold gold-accent">Dashboard</a>
+            <a href="#" class="block text-sm font-semibold hover:text-[#D4AF37]">Accounts</a>
+            <a href="#" class="block text-sm font-semibold hover:text-[#D4AF37]">Wire Transfer</a>
+            <a href="#" class="block text-sm font-semibold hover:text-[#D4AF37]">Sovereign Cards</a>
+            <a href="#" class="block text-sm font-semibold hover:text-[#D4AF37]">Vault Access</a>
+        </nav>
+        <div class="border-t border-gray-700 pt-6">
+            <p class="text-xs text-gray-500 mb-2">E-CITIZEN STATUS</p>
+            <span class="bg-green-900 text-green-300 text-[10px] px-2 py-1 rounded">VERIFIED</span>
+        </div>
+    </aside><!-- Main Content -->
+
+<main class="flex-1 p-10">
+
+    <div class="flex justify-between items-center mb-10">
+
+        <h2 class="text-3xl font-bold">Welcome, <span type="placeholder" placeholder-type="person"></span></h2>
+
+        <div class="flex items-center space-x-4">
+
+            <span class="text-sm font-medium">Last Login: <span type="placeholder" placeholder-type="date"></span></span>
+
+            <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Asset Cards -->
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#0A192F]">
+
+            <p class="text-xs text-gray-400 uppercase font-bold">Total Balance (USD)</p>
+
+            <h3 class="text-2xl font-bold mt-2">$245,600.00</h3>
+
+        </div>
+
+        <div class="bg-[#0A192F] text-white p-6 rounded-xl shadow-sm border-l-4 border-[#D4AF37]">
+
+            <p class="text-xs text-gray-400 uppercase font-bold">A1X Vault</p>
+
+            <h3 class="text-2xl font-bold mt-2">1,500.25 A1X</h3>
+
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-yellow-600">
+
+            <p class="text-xs text-gray-400 uppercase font-bold">Gold Reserve (XAU)</p>
+
+            <h3 class="text-2xl font-bold mt-2">10.00 oz</h3>
+
+        </div>
+
+    </div>
+
+    <!-- Transfer Simulator -->
+
+    <div class="bg-white rounded-xl shadow-sm p-8">
+
+        <h3 class="text-xl font-bold mb-6">International Wire Transfer</h3>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+            <div>
+
+                <label class="block text-xs font-bold text-gray-500 mb-2">RECIPIENT BANK (SWIFT/BIC)</label>
+
+                <input type="text" class="w-full border-gray-200 border p-3 rounded-lg focus:ring-1 focus:ring-[#0A192F]" placeholder="CRCHIPXXXXXXXX">
+
+            </div>
+
+            <div>
+
+                <label class="block text-xs font-bold text-gray-500 mb-2">AMOUNT (USD)</label>
+
+                <input type="number" class="w-full border-gray-200 border p-3 rounded-lg" placeholder="0.00">
+
+            </div>
+
+            <div class="md:col-span-2">
+
+                <label class="block text-xs font-bold text-gray-500 mb-2">PURPOSE OF REMITTANCE</label>
+
+                <select class="w-full border-gray-200 border p-3 rounded-lg">
+
+                    <option>Sovereign Investment</option>
+
+                    <option>Nobility Fee Payment</option>
+
+                    <option>Commercial Trade</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button class="mt-8 bg-[#0A192F] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#D4AF37] transition">Authorize Transfer</button>
+
+    </div>
+
+</main>
+
+</body>
+</html>
+```
