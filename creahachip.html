@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nación Digital de Creahachip | Portal Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#fef9c3',
+                            300: '#fde047',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                        },
+                        royal: {
+                            800: '#1e1b4b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-royal-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-royal-950/80 border-b border-gold-600/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gold-gradient p-0.5 flex items-center justify-center shadow-lg">
+                        <div class="w-full h-full bg-royal-900 rounded-full flex items-center justify-center">
+                            <i class="fa-solid font-bold text-gold-500 text-xl">👑</i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-wider text-gold-gradient block">CREAHACHIP</span>
+                        <span class="text-xs text-slate-400 tracking-widest uppercase block">Soberanía Digital</span>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#ciudadania" class="text-slate-300 hover:text-gold-500 transition-colors">Ciudadanía & Títulos</a>
+                    <a href="#banco" class="text-slate-300 hover:text-gold-500 transition-colors">Banco Central</a>
+                    <a href="#cripto" class="text-slate-300 hover:text-gold-500 transition-colors">Criptomoneda A1X</a>
+                    <a href="#software" class="text-slate-300 hover:text-gold-500 transition-colors">Software</a>
+                </nav>
+
+                <div>
+                    <a href="#ciudadania" class="px-5 py-2.5 rounded-full bg-gold-600 hover:bg-gold-500 text-royal-950 font-bold transition-all transform hover:scale-105 shadow-lg shadow-gold-600/20">
+                        Unirse a la Nación
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center overflow-hidden">
+        <div class="absolute inset-0 -z-10 flex items-center justify-center">
+            <div class="w-[500px] h-[500px] bg-gold-600/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <span class="px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-300 text-sm font-semibold tracking-wide uppercase inline-block mb-6">
+            Bajo el Liderazgo de la Reina Sira Elena
+        </span>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+            Bienvenido a la <span class="text-gold-gradient">Nación Digital de Creahachip</span>
+        </h1>
+        
+        <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
+            Una soberanía moderna basada en tecnología, innovación en desarrollo de software y estabilidad financiera mediante la criptomoneda soberana <strong>A1X</strong>.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#ciudadania" class="px-8 py-4 rounded-xl bg-gold-gradient text-royal-950 font-bold text-lg hover:brightness-110 transition-all shadow-xl">
+                Solicitar Ciudadanía Digital
+            </a>
+            <a href="#cripto" class="px-8 py-4 rounded-xl border border-gold-500/30 bg-royal-900/50 hover:bg-royal-900 text-slate-200 font-semibold text-lg transition-all">
+                Conocer la Crypto A1X
+            </a>
+        </div>
+    </section>
+
+    <!-- Citizenship & Titles -->
+    <section id="ciudadania" class="py-20 bg-royal-900/40 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gold-gradient mb-4">Ciudadanía & Títulos Nobiliarios</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Forma parte oficialmente de Creahachip. Otorga tu reconocimiento dentro de nuestro ecosistema soberano.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Ciudadanía Estándar -->
+                <div class="bg-royal-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-gold-500/50 transition-all">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-500 mb-6">
+                            <i class="fa-solid fa-id-card text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Ciudadanía Digital</h3>
+                        <p class="text-slate-400 text-sm mb-6">Pasaporte virtual, derecho a cuenta bancaria soberana y acceso al ecosistema A1X.</p>
+                    </div>
+                    <button class="w-full py-3 rounded-lg border border-gold-500 text-gold-500 font-bold hover:bg-gold-500 hover:text-royal-950 transition-all">
+                        Aplicar
+                    </button>
+                </div>
+
+                <!-- Título Nobiliario -->
+                <div class="bg-royal-900 border-2 border-gold-500 rounded-2xl p-8 flex flex-col justify-between relative shadow-2xl shadow-gold-500/10">
+                    <span class="absolute -top-3 right-6 bg-gold-500 text-royal-950 text-xs font-bold px-3 py-1 rounded-full uppercase">Oficial</span>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/20 flex items-center justify-center text-gold-500 mb-6">
+                            <i class="fa-solid fa-crown text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Título de Nobleza</h3>
+                        <p class="text-slate-400 text-sm mb-6">Reconocimiento otorgado directamente por la Reina. Incluye certificado firmado en blockchain.</p>
+                    </div>
+                    <button class="w-full py-3 rounded-lg bg-gold-gradient text-royal-950 font-bold hover:brightness-110 transition-all">
+                        Solicitar Título
+                    </button>
+                </div>
+
+                <!-- Residencia Comercial -->
+                <div class="bg-royal-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-gold-500/50 transition-all">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-500 mb-6">
+                            <i class="fa-solid fa-building-columns text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Registro de Empresa</h3>
+                        <p class="text-slate-400 text-sm mb-6">Establece tu empresa bajo el marco regulatorio digital de Creahachip.</p>
+                    </div>
+                    <button class="w-full py-3 rounded-lg border border-gold-500 text-gold-500 font-bold hover:bg-gold-500 hover:text-royal-950 transition-all">
+                        Registrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crypto & Banking Section -->
+    <section id="cripto" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-gold-500 font-semibold tracking-wider text-sm uppercase">Sistema Financiero</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-6">Criptomoneda A1X & Banco Soberano</h2>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        El Banco Comercial de Creahachip ofrece custodia digital de activos y procesamiento de pagos seguros. Nuestra criptomoneda nativa, <strong>A1X</strong>, impulsa las transacciones internacionales y el comercio dentro de la nación.
+                    </p>
+                    <ul class="space-y-4 text-slate-300 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-gold-500"></i>
+                            Emisión transparente y respaldada.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-gold-500"></i>
+                            Cuentas bancarias digitales para ciudadanos.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-gold-500"></i>
+                            Bajas comisiones y alta velocidad de procesamiento.
+                        </li>
+                    </ul>
+                    <a href="#banco" class="inline-flex items-center gap-2 text-gold-500 font-bold hover:gap-3 transition-all">
+                        Acceder a la Banca en Línea <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="bg-gradient-to-br from-royal-900 to-slate-900 border border-gold-500/20 p-8 rounded-3xl shadow-2xl relative">
+                    <div class="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
+                        <div>
+                            <p class="text-slate-400 text-xs">Criptomoneda Oficial</p>
+                            <h4 class="text-2xl font-bold text-gold-gradient">A1X Token</h4>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-semibold rounded-full">Activo</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between py-2 border-b border-slate-800/50">
+                            <span class="text-slate-400">Nombre:</span>
+                            <span class="font-medium">Creahachip A1X</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-slate-800/50">
+                            <span class="text-slate-400">Símbolo:</span>
+                            <span class="font-medium text-gold-500">A1X</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-slate-800/50">
+                            <span class="text-slate-400">Red:</span>
+                            <span class="font-medium">Red Soberana Creahachip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Development -->
+    <section id="software" class="py-20 bg-royal-900/40 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gold-gradient mb-4">División de Software</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Creahachip desarolla soluciones tecnológicas avanzadas, herramientas de cifrado y plataformas digitales comerciales.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-royal-900 p-6 rounded-xl border border-slate-800">
+                    <i class="fa-solid fa-shield-halved text-gold-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Creahachip Shield</h3>
+                    <p class="text-slate-400 text-sm">Software de seguridad y encriptación de datos para instituciones y empresas.</p>
+                </div>
+                <div class="bg-royal-900 p-6 rounded-xl border border-slate-800">
+                    <i class="fa-solid fa-wallet text-gold-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">A1X Wallet App</h3>
+                    <p class="text-slate-400 text-sm">Billetera oficial para resguardo y transferencia de fondos en la moneda A1X.</p>
+                </div>
+                <div class="bg-royal-900 p-6 rounded-xl border border-slate-800">
+                    <i class="fa-solid fa-code text-gold-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Soluciones Web Custom</h3>
+                    <p class="text-slate-400 text-sm">Desarrollo de sistemas a medida para comercio electrónico y gestión privada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-royal-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div>
+                <p class="text-xl font-bold text-gold-gradient">Nación Digital de Creahachip</p>
+                <p class="text-xs text-slate-500 mt-1">Soberanía, Tecnología y Progreso Financiero — 10 Años de Trayectoria.</p>
+            </div>
+            <p class="text-xs text-slate-600">
+                &copy; Portal Oficial Soberano. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
