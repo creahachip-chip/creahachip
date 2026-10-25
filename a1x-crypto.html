@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -8,17 +7,29 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A1X Sovereign Token | Creahachip</title>
+    <title>Cripto A1X | Creahachip Sovereign Ecosystem</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
 
         body { font-family: 'Inter', sans-serif; background-color: #050a14; color: #e5e7eb; }
 
-        .stat-card { background: linear-gradient(145deg, #0A192F, #050a14); border: 1px solid #1e293b; }
+        .imperial-gold { color: #D4AF37; }
 
-        .gold-glow:hover { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); border-color: #D4AF37; }
+        .bg-imperial-navy { background-color: #0A192F; }
+
+        .border-gold { border-color: #D4AF37; }
+
+        .bg-gold { background-color: #D4AF37; }
+
+        .text-navy { color: #0A192F; }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        .nav-link:hover { color: #D4AF37; transition: 0.3s; }
 
     </style>
 
@@ -26,147 +37,137 @@
 
 <body>
 
-    <!-- Simplified Nav -->
+    <!-- Header -->
 
-    <nav class="p-6 flex justify-between items-center border-b border-gray-800">
+    <header class="bg-imperial-navy border-b border-gold py-4 px-8 sticky top-0 z-50 shadow-2xl">
 
-        <h1 class="text-xl font-bold text-white tracking-widest">A1X <span class="text-[#D4AF37]">ENGINE</span></h1>
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
 
-        <button class="bg-[#D4AF37] text-navy px-4 py-2 text-xs font-bold rounded">CONNECT WALLET</button>
+            <div class="flex items-center space-x-4">
 
-    </nav>
+                <div class="w-12 h-12 bg-gold flex items-center justify-center rounded-full border border-gold">
 
-    <main class="max-w-6xl mx-auto py-12 px-6">
+                    <span class="text-2xl font-bold text-navy">C</span>
 
-        <!-- Market Stats -->
+                </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div>
 
-            <div class="stat-card p-6 rounded-lg text-center">
+                    <h1 class="text-xl font-bold tracking-widest text-white uppercase">Creahachip</h1>
 
-                <p class="text-gray-500 text-xs uppercase mb-2">A1X Price</p>
+                    <p class="text-xs imperial-gold uppercase tracking-tighter" data-i18n="portal_subtitle">Moneda & Ecosistema A1X</p>
 
-                <h2 class="text-2xl font-bold text-white">$142.50 <span class="text-green-500 text-sm">+4.2%</span></h2>
-
-            </div>
-
-            <div class="stat-card p-6 rounded-lg text-center">
-
-                <p class="text-gray-500 text-xs uppercase mb-2">Total Supply</p>
-
-                <h2 class="text-2xl font-bold text-white">1,000,000</h2>
+                </div>
 
             </div>
 
-            <div class="stat-card p-6 rounded-lg text-center">
+            <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
 
-                <p class="text-gray-500 text-xs uppercase mb-2">Circulating</p>
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Inicio</a>
 
-                <h2 class="text-2xl font-bold text-white">450,230</h2>
+                <a href="bank.html" class="nav-link" data-i18n="nav_bank">Banco Soberano</a>
 
-            </div>
+                <a href="a1x-crypto.html" class="nav-link imperial-gold" data-i18n="nav_crypto">Cripto A1X</a>
 
-            <div class="stat-card p-6 rounded-lg text-center">
+                <a href="citizenship-products.html" class="nav-link" data-i18n="nav_products">Productos & Empleo</a>
 
-                <p class="text-gray-500 text-xs uppercase mb-2">Staking APY</p>
+            </nav>
 
-                <h2 class="text-2xl font-bold text-[#D4AF37]">12.5%</h2>
+            <div class="flex items-center space-x-4 text-xs">
+
+                <select id="languageSelect" onchange="changeLanguage(this.value)" class="bg-[#0A192F] text-white border border-gold rounded px-3 py-1 focus:outline-none cursor-pointer font-semibold">
+
+                    <option value="es" selected>Español</option>
+
+                    <option value="en">English</option>
+
+                </select>
 
             </div>
 
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
+    </header>
 
-            <!-- Swap Interface -->
+    <!-- Main Banner -->
 
-            <div class="stat-card p-8 rounded-2xl border-gold border">
+    <section class="py-12 px-8 text-center bg-imperial-navy border-b border-gray-800">
 
-                <h3 class="text-xl mb-6 font-bold">Sovereign Swap</h3>
+        <div class="max-w-4xl mx-auto">
 
-                <div class="space-y-4">
+            <span class="bg-gold/20 text-gold text-xs px-3 py-1 rounded border border-gold/40 uppercase font-bold tracking-widest" data-i18n="badge_contract">Contrato Inteligente Activo</span>
 
-                    <div class="bg-black/50 p-4 rounded-lg">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">A1x Creahachip Sovereign (A1X)</h2>
 
-                        <label class="text-xs text-gray-500">From</label>
+            <p class="text-gray-400 text-sm md:text-base mb-6" data-i18n="crypto_subtitle">El motor económico micronacional optimizado para micropagos, e-Residencia e infraestructura IA en Binance Smart Chain (BSC).</p>
 
-                        <div class="flex justify-between items-center mt-1">
+            
 
-                            <input type="number" placeholder="0.00" class="bg-transparent text-2xl outline-none w-1/2">
+            <!-- Contrato y BscScan -->
 
-                            <span class="font-bold">USDT</span>
+            <div class="bg-[#050a14] border border-gold/40 p-4 rounded-lg inline-block max-w-full text-left">
 
-                        </div>
+                <p class="text-xs text-gray-400 mb-1" data-i18n="txt_contract">Dirección del Contrato (BEP-20):</p>
 
-                    </div>
-
-                    <div class="flex justify-center -my-4 relative z-10">
-
-                        <button class="bg-[#D4AF37] p-2 rounded-full text-black">↓</button>
-
-                    </div>
-
-                    <div class="bg-black/50 p-4 rounded-lg">
-
-                        <label class="text-xs text-gray-500">To (Estimated)</label>
-
-                        <div class="flex justify-between items-center mt-1">
-
-                            <input type="number" placeholder="0.00" class="bg-transparent text-2xl outline-none w-1/2" readonly>
-
-                            <span class="font-bold text-[#D4AF37]">A1X</span>
-
-                        </div>
-
-                    </div>
-
-                    <button class="w-full bg-[#D4AF37] py-4 text-black font-bold uppercase rounded-lg mt-4">Swap Assets</button>
-
-                </div>
+                <p class="text-xs md:text-sm font-mono text-gold break-all select-all font-bold">0x1aD4EeA4661D20e16C992237Ea0C30a2a06FE045</p>
 
             </div>
 
-            <!-- Staking & Node Info -->
+        </div>
 
-            <div class="space-y-6">
+    </section>
 
-                <div class="stat-card p-6 rounded-xl gold-glow transition">
+    <!-- Integración de Mercado & Billeteras -->
 
-                    <h3 class="text-lg font-bold mb-2">Imperial Node Explorer</h3>
+    <section class="py-12 px-8 bg-[#071120]">
 
-                    <p class="text-sm text-gray-400">Total Active Nodes: <span class="text-white">124</span></p>
+        <div class="max-w-7xl mx-auto">
 
-                    <p class="text-sm text-gray-400 mt-2">Network Health: <span class="text-green-400 italic">Optimal</span></p>
+            <h3 class="text-2xl text-white mb-8 text-center font-bold" data-i18n="sec_market_title">Compatibilidad Web3 & Rastreo de Mercado</h3>
 
-                    <div class="mt-4 h-2 bg-gray-900 rounded-full overflow-hidden">
+            
 
-                        <div class="bg-[#D4AF37] h-full" style="width: 85%"></div>
+            <div class="grid md:grid-cols-3 gap-6">
 
-                    </div>
+                <!-- Binance Web3 Card -->
+
+                <div class="bg-[#0D1F3D] border border-gray-800 p-6 rounded text-center hover:border-gold transition">
+
+                    <div class="w-12 h-12 bg-yellow-500/20 text-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">⚡</div>
+
+                    <h4 class="text-lg font-bold text-white mb-2">Binance Web3</h4>
+
+                    <p class="text-xs text-gray-400 mb-4" data-i18n="binance_desc">Sigue el movimiento, transacciones y la actividad del par indexado en la plataforma oficial de Binance Web3.</p>
+
+                    <a href="https://web3.binance.com/es-LA/token/bsc/0x1ad4eea4661d20e16c992237ea0c30a2a06fe045" target="_blank" class="inline-block w-full bg-yellow-500 text-black py-2 rounded font-bold text-xs hover:bg-yellow-400 transition" data-i18n="btn_binance">Ver en Binance Web3</a>
 
                 </div>
 
-                
+                <!-- MetaMask Integration -->
 
-                <div class="stat-card p-6 rounded-xl gold-glow transition">
+                <div class="bg-[#0D1F3D] border border-gray-800 p-6 rounded text-center hover:border-gold transition">
 
-                    <h3 class="text-lg font-bold mb-2">Liquidity Pools</h3>
+                    <div class="w-12 h-12 bg-orange-500/20 text-orange-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">🦊</div>
 
-                    <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                    <h4 class="text-lg font-bold text-white mb-2">MetaMask Wallet</h4>
 
-                        <span class="text-sm">A1X / GOLD</span>
+                    <p class="text-xs text-gray-400 mb-4" data-i18n="metamask_desc">Agrega el token A1X directamente a tu billetera MetaMask en la red BSC con un solo clic.</p>
 
-                        <span class="text-sm text-[#D4AF37]">TVL: $4.2M</span>
+                    <button onclick="addTokenToMetaMask()" class="w-full border border-gold text-gold py-2 rounded font-bold text-xs hover:bg-gold hover:text-navy transition" data-i18n="btn_metamask">Importar a MetaMask</button>
 
-                    </div>
+                </div>
 
-                    <div class="flex justify-between items-center py-2">
+                <!-- Trust Wallet Card -->
 
-                        <span class="text-sm">A1X / USD</span>
+                <div class="bg-[#0D1F3D] border border-gray-800 p-6 rounded text-center hover:border-gold transition">
 
-                        <span class="text-sm text-[#D4AF37]">TVL: $12.8M</span>
+                    <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">🛡️</div>
 
-                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Trust Wallet</h4>
+
+                    <p class="text-xs text-gray-400 mb-4" data-i18n="trust_desc">Compatible con Trust Wallet. Copia la dirección del contrato e impórtalo como token personalizado BEP-20.</p>
+
+                    <a href="https://bscscan.com/token/0x1aD4EeA4661D20e16C992237Ea0C30a2a06FE045" target="_blank" class="inline-block w-full border border-blue-400 text-blue-400 py-2 rounded font-bold text-xs hover:bg-blue-400 hover:text-black transition" data-i18n="btn_trust">Ver en BscScan</a>
 
                 </div>
 
@@ -174,7 +175,275 @@
 
         </div>
 
-    </main>
+    </section>
+
+    <!-- Módulo de Solicitud de Cuenta A1X -->
+
+    <section class="py-16 px-8 bg-[#050a14]">
+
+        <div class="max-w-3xl mx-auto bg-imperial-navy border border-gold p-8 rounded-lg shadow-2xl">
+
+            <div class="text-center mb-8">
+
+                <h3 class="text-3xl font-bold text-white mb-2" data-i18n="form_title">Solicitar Apertura de Cuenta A1X</h3>
+
+                <p class="text-xs text-gray-300" data-i18n="form_desc">Abre tu cuenta soberana para gestionar tokens A1X, solicitar Ciudadanía ($2) o Pasaporte ($3).</p>
+
+            </div>
+
+            <form action="mailto:a1xcoinchip@gmail.com" method="post" enctype="text/plain" class="space-y-4 text-xs">
+
+                <div>
+
+                    <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_name">Nombre Completo:</label>
+
+                    <input type="text" name="Nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                </div>
+
+                <div>
+
+                    <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_email">Correo Electrónico:</label>
+
+                    <input type="email" name="Correo" required placeholder="tu@correo.com" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                </div>
+
+                <div>
+
+                    <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_wallet">Dirección de Billetera BSC (Opcional):</label>
+
+                    <input type="text" name="Billetera_BSC" placeholder="0x..." class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                </div>
+
+                <div>
+
+                    <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_service">Servicio / Solicitud Principal:</label>
+
+                    <select name="Servicio_Solicitado" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                        <option value="Apertura de Cuenta A1X Básica">Apertura de Cuenta A1X Básica</option>
+
+                        <option value="Ciudadanía Digital ($2 USD)">Ciudadanía Digital ($2 USD)</option>
+
+                        <option value="Pasaporte Oficial ($3 USD)">Pasaporte Oficial ($3 USD)</option>
+
+                        <option value="Combo Diplomático + SO Genesis ($120 USD)">Combo Diplomático + SO Genesis ($120 USD)</option>
+
+                    </select>
+
+                </div>
+
+                <button type="submit" class="w-full bg-gold text-navy py-3 uppercase font-bold text-xs hover:bg-yellow-600 transition rounded mt-4" data-i18n="btn_submit_account">Enviar Solicitud de Cuenta</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-black py-12 px-8 border-t border-gray-900 text-center">
+
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">© 2026 Sovereign Nation of Creahachip | System Gregory PC</p>
+
+        <div class="flex justify-center space-x-6">
+
+            <a href="mailto:a1xcoinchip@gmail.com" class="text-gray-600 hover:text-gold">a1xcoinchip@gmail.com</a>
+
+            <a href="mailto:creahachip@gmail.com" class="text-gray-600 hover:text-gold">creahachip@gmail.com</a>
+
+        </div>
+
+    </footer>
+
+    <!-- Script de Integración Web3 & Traducciones -->
+
+    <script>
+
+        // Función para importar A1X a MetaMask automáticamente
+
+        async function addTokenToMetaMask() {
+
+            const tokenAddress = '0x1aD4EeA4661D20e16C992237Ea0C30a2a06FE045';
+
+            const tokenSymbol = 'A1X';
+
+            const tokenDecimals = 18;
+
+            const tokenImage = 'https://systemgregorypc666.github.io/a1xcoin/logo.png';
+
+            if (window.ethereum) {
+
+                try {
+
+                    await window.ethereum.request({
+
+                        method: 'wallet_watchAsset',
+
+                        params: {
+
+                            type: 'ERC20',
+
+                            options: {
+
+                                address: tokenAddress,
+
+                                symbol: tokenSymbol,
+
+                                decimals: tokenDecimals,
+
+                                image: tokenImage,
+
+                            },
+
+                        },
+
+                    });
+
+                } catch (error) {
+
+                    console.error("Error al agregar el token:", error);
+
+                }
+
+            } else {
+
+                alert("MetaMask no está detectado en tu navegador. Por favor copia el contrato manualmente: " + tokenAddress);
+
+            }
+
+        }
+
+        // Traducción ES / EN
+
+        const translations = {
+
+            es: {
+
+                portal_subtitle: "Moneda & Ecosistema A1X",
+
+                nav_home: "Inicio",
+
+                nav_bank: "Banco Soberano",
+
+                nav_crypto: "Cripto A1X",
+
+                nav_products: "Productos & Empleo",
+
+                badge_contract: "Contrato Inteligente Activo",
+
+                crypto_subtitle: "El motor económico micronacional optimizado para micropagos, e-Residencia e infraestructura IA en Binance Smart Chain (BSC).",
+
+                txt_contract: "Dirección del Contrato (BEP-20):",
+
+                sec_market_title: "Compatibilidad Web3 & Rastreo de Mercado",
+
+                binance_desc: "Sigue el movimiento, transacciones y la actividad del par indexado en la plataforma oficial de Binance Web3.",
+
+                btn_binance: "Ver en Binance Web3",
+
+                metamask_desc: "Agrega el token A1X directamente a tu billetera MetaMask en la red BSC con un solo clic.",
+
+                btn_metamask: "Importar a MetaMask",
+
+                trust_desc: "Compatible con Trust Wallet. Copia la dirección del contrato e impórtalo como token personalizado BEP-20.",
+
+                btn_trust: "Ver en BscScan",
+
+                form_title: "Solicitar Apertura de Cuenta A1X",
+
+                form_desc: "Abre tu cuenta soberana para gestionar tokens A1X, solicitar Ciudadanía ($2) o Pasaporte ($3).",
+
+                lbl_name: "Nombre Completo:",
+
+                lbl_email: "Correo Electrónico:",
+
+                lbl_wallet: "Dirección de Billetera BSC (Opcional):",
+
+                lbl_service: "Servicio / Solicitud Principal:",
+
+                btn_submit_account: "Enviar Solicitud de Cuenta"
+
+            },
+
+            en: {
+
+                portal_subtitle: "A1X Currency & Ecosystem",
+
+                nav_home: "Home",
+
+                nav_bank: "Sovereign Bank",
+
+                nav_crypto: "A1X Crypto",
+
+                nav_products: "Products & Jobs",
+
+                badge_contract: "Smart Contract Active",
+
+                crypto_subtitle: "The micronational economic engine optimized for micropayments, e-Residency, and AI infrastructure on Binance Smart Chain (BSC).",
+
+                txt_contract: "Contract Address (BEP-20):",
+
+                sec_market_title: "Web3 Compatibility & Market Tracking",
+
+                binance_desc: "Track movements, transactions, and index activity on the official Binance Web3 platform.",
+
+                btn_binance: "View on Binance Web3",
+
+                metamask_desc: "Add the A1X token directly to your MetaMask wallet on the BSC network with a single click.",
+
+                btn_metamask: "Import to MetaMask",
+
+                trust_desc: "Compatible with Trust Wallet. Copy the contract address and import it as a custom BEP-20 token.",
+
+                btn_trust: "View on BscScan",
+
+                form_title: "Apply for an A1X Account",
+
+                form_desc: "Open your sovereign account to manage A1X tokens, apply for Citizenship ($2), or Passport ($3).",
+
+                lbl_name: "Full Name:",
+
+                lbl_email: "Email Address:",
+
+                lbl_wallet: "BSC Wallet Address (Optional):",
+
+                lbl_service: "Main Service / Request:",
+
+                btn_submit_account: "Submit Account Request"
+
+            }
+
+        };
+
+        function changeLanguage(lang) {
+
+            const elements = document.querySelectorAll('[data-i18n]');
+
+            elements.forEach(element => {
+
+                const key = element.getAttribute('data-i18n');
+
+                if (translations[lang] && translations[lang][key]) {
+
+                    element.textContent = translations[lang][key];
+
+                }
+
+            });
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            changeLanguage('es');
+
+        });
+
+    </script>
 
 </body>
 
