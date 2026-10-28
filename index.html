@@ -159,11 +159,13 @@
 
     <!-- Script de Traducciones y Conexión GitHub API -->
     <script>
+       <!-- Script de Traducciones y Conexión GitHub API -->
+    <script>
         // Configuración de Conexión a GitHub
-      const GH_USER = "creahachip-chip"; 
-        const GH_REPO = "creahachip";        // 👈 Corregido el nombre del repositorio
+        const GH_USER = "creahachip-chip"; 
+        const GH_REPO = "creahachip";        
         const GH_PATH = "ser/creahachip-db"; 
-        const GH_TOKEN = "github_pat_"; // Tu llave personal (PAT) de GitHub con permisos repo
+        const GH_TOKEN = "github_pat_AQUÍ_TU_TOKEN_COMPLETO_REAL"; // 👈 Pega aquí tu token entero
 
         function abrirModalRegistro() {
             document.getElementById('modalRegistro').classList.remove('hidden');
@@ -174,7 +176,7 @@
             document.getElementById('statusMessage').classList.add('hidden');
         }
 
-       async function actualizarArchivoGitHub(nombreArchivo, callbackActualizar) {
+        async function actualizarArchivoGitHub(nombreArchivo, callbackActualizar) {
             const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/${nombreArchivo}`;
             
             const responseLectura = await fetch(url, {
@@ -267,14 +269,11 @@
                 status.textContent = `¡Éxito! Registrado en la Nación (${idUnico}) y Cuenta Aperturada (${numCuentaBanco}).`;
                 document.getElementById('formCiudadano').reset();
 
-                // ==========================================================
-                // NUEVO: Guardar sesión y redirigir automáticamente al comercio
-                // ==========================================================
                 localStorage.setItem("creahachip_ciudadano_id", idUnico);
                 
                 setTimeout(() => {
                     window.location.href = "ser/comercio.html";
-                }, 2000); // Espera 2 segundos para que el usuario lea el mensaje de éxito
+                }, 2000);
 
             } catch (err) {
                 console.error(err);
