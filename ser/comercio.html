@@ -1,0 +1,174 @@
+<!-- Sección: Salón de Comercio e Intercambio A1X -->
+<section id="mercado" class="py-16 px-8 bg-[#071326] border-t border-gold">
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- Encabezado del Mercado -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl text-white font-bold mb-2">🏛️ Salón de Comercio e Intercambio A1X</h2>
+            <p class="text-sm imperial-gold">Espacio Soberano para Comprar, Vender y Negociar con Moneda A1X</p>
+            <div class="w-20 h-1 bg-gold mx-auto mt-4"></div>
+        </div>
+
+        <!-- Opciones y Botón para Publicar -->
+        <div class="flex justify-between items-center mb-8 bg-[#0A192F] p-4 border border-gray-800 rounded">
+            <span class="text-xs text-gray-300 uppercase tracking-wider">Mercado P2P & Ofertas Activas</span>
+            <button onclick="abrirModalPublicar()" class="bg-gold text-navy font-bold px-4 py-2 text-xs uppercase tracking-wider rounded hover:bg-yellow-600 transition">
+                + Publicar Artículo o Servicio
+            </button>
+        </div>
+
+        <!-- Malla de Productos y Servicios (Grid) -->
+        <div id="gridMercado" class="grid md:grid-cols-3 gap-6">
+            <!-- Las tarjetas de productos se cargarán dinámicamente desde comercio_a1x.json -->
+            <div class="bg-[#0D1F3D] border border-gray-800 p-6 rounded text-center">
+                <p class="text-xs text-gray-400">Cargando ofertas del Mercado Soberano...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para Crear Nueva Publicación -->
+<div id="modalPublicar" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-[#0A192F] border-2 border-gold max-w-lg w-full p-6 rounded relative">
+        <button onclick="cerrarModalPublicar()" class="absolute top-3 right-3 text-gold text-xl font-bold">&times;</button>
+        <h3 class="text-xl text-white font-bold mb-1">Nueva Publicación Comercial</h3>
+        <p class="text-xs imperial-gold mb-4">Oferta tus artículos o servicios a la comunidad Creahachip</p>
+
+        <form id="formPublicar" onsubmit="guardarPublicacion(event)" class="space-y-3">
+            <div>
+                <label class="block text-xs imperial-gold uppercase mb-1">Usuario ID de Ciudadano</label>
+                <input type="text" id="pubCiudadano" required placeholder="ej: CH-0001" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+            </div>
+            <div>
+                <label class="block text-xs imperial-gold uppercase mb-1">Tipo de Oferta</label>
+                <select id="pubTipo" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+                    <option value="Producto">Venta de Artículo / Producto</option>
+                    <option value="Servicio">Ofrecer Servicio Profesional</option>
+                    <option value="Intercambio">Intercambio de Monedas / Divisas</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs imperial-gold uppercase mb-1">Título de la Oferta</label>
+                <input type="text" id="pubTitulo" required placeholder="ej: Módulo de Memoria RAM / Servicio Técnico" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+            </div>
+            <div>
+                <label class="block text-xs imperial-gold uppercase mb-1">Precio en A1X (o Equivalente)</label>
+                <input type="text" id="pubPrecio" required placeholder="ej: 100 A1X" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+            </div>
+            <div>
+                <label class="block text-xs imperial-gold uppercase mb-1">Descripción / Detalle</label>
+                <textarea id="pubDesc" required rows="3" placeholder="Detalles del producto, estado, forma de entrega..." class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded"></textarea>
+            </div>
+            <div>
+                <label class="block text-xs imperial-gold uppercase mb-1">Contacto o Billetera</label>
+                <input type="text" id="pubContacto" required placeholder="Correo, WhatsApp o Dirección Cripto" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+            </div>
+            <button type="submit" class="w-full bg-gold text-navy font-bold py-3 uppercase text-xs tracking-widest hover:bg-yellow-600 transition mt-2">
+                Publicar en el Mercado
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function abrirModalPublicar() {
+        document.getElementById('modalPublicar').classList.remove('hidden');
+    }
+
+    function cerrarModalPublicar() {
+        document.getElementById('modalPublicar').classList.add('hidden');
+    }
+
+    // Guardar publicación directamente en comercio_a1x.json
+    async function guardarPublicacion(e) {
+        e.preventDefault();
+        
+        const ciudadano = document.getElementById('pubCiudadano').value.trim();
+        const tipo = document.getElementById('pubTipo').value;
+        const titulo = document.getElementById('pubTitulo').value.trim();
+        const precio = document.getElementById('pubPrecio').value.trim();
+        const desc = document.getElementById('pubDesc').value.trim();
+        const contacto = document.getElementById('pubContacto').value.trim();
+
+        try {
+            await actualizarArchivoGitHub("comercio_a1x.json", (db) => {
+                if (!db.publicaciones) db.publicaciones = [];
+                db.publicaciones.push({
+                    id_oferta: "OFR-" + Math.floor(1000 + Math.random() * 9000),
+                    id_ciudadano: ciudadano,
+                    tipo: tipo,
+                    titulo: titulo,
+                    precio_a1x: precio,
+                    descripcion: desc,
+                    contacto: contacto,
+                    fecha: new Date().toISOString(),
+                    estado: "Disponible"
+                });
+                return db;
+            });
+
+            alert("¡Publicación realizada con éxito en el Mercado Soberano!");
+            cerrarModalPublicar();
+            document.getElementById('formPublicar').reset();
+            cargarMercado();
+
+        } catch (err) {
+            alert("Error al publicar: " + err.message);
+        }
+    }
+
+    // Cargar y mostrar todas las ofertas registradas
+    async function cargarMercado() {
+        const grid = document.getElementById('gridMercado');
+        const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/comercio_a1x.json`;
+
+        try {
+            const res = await fetch(url, {
+                headers: { "Authorization": `token ${GH_TOKEN}` }
+            });
+            if (!res.ok) return;
+
+            const data = await res.json();
+            const contenido = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+            
+            grid.innerHTML = "";
+            
+            if (!contenido.publicaciones || contenido.publicaciones.length === 0) {
+                grid.innerHTML = `<p class="text-xs text-gray-400 col-span-3 text-center">No hay publicaciones activas. ¡Sé el primero en ofertar!</p>`;
+                return;
+            }
+
+            contenido.publicaciones.forEach(pub => {
+                grid.innerHTML += `
+                    <div class="bg-[#0D1F3D] border border-gold p-6 rounded flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-[10px] bg-gold text-navy font-bold px-2 py-0.5 rounded uppercase">${pub.tipo}</span>
+                                <span class="text-xs text-gray-400">${pub.id_ciudadano}</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">${pub.titulo}</h4>
+                            <p class="text-xs text-gray-300 mb-4">${pub.descripcion}</p>
+                        </div>
+                        <div class="border-t border-gray-800 pt-4 mt-2 flex justify-between items-center">
+                            <div>
+                                <span class="text-[10px] text-gray-400 block">PRECIO</span>
+                                <span class="text-sm font-bold imperial-gold">${pub.precio_a1x}</span>
+                            </div>
+                            <a href="mailto:${pub.contacto}" class="border border-gold text-gold text-[10px] font-bold px-3 py-1.5 uppercase hover:bg-gold hover:text-navy transition">
+                                Contactar
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+
+        } catch (err) {
+            console.error("Error al cargar ofertas:", err);
+        }
+    }
+
+    // Cargar ofertas al iniciar la página
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(cargarMercado, 1000);
+    });
+</script>
