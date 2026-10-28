@@ -162,6 +162,7 @@
         // Configuración de Conexión a GitHub
         const GH_USER = "creahachip-chip"; // Tu usuario de GitHub
         const GH_REPO = "creahachip-db";   // Tu repositorio de base de datos
+        const GH_PATH = "ser/creahachip-db"; // La carpeta exacta donde están tus archivos JSON
         const GH_TOKEN = "TU_PERSONAL_ACCESS_TOKEN"; // Tu llave personal (PAT) de GitHub con permisos repo
 
         function abrirModalRegistro() {
@@ -173,8 +174,8 @@
             document.getElementById('statusMessage').classList.add('hidden');
         }
 
-        async function actualizarArchivoGitHub(nombreArchivo, callbackActualizar) {
-            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${nombreArchivo}`;
+       async function actualizarArchivoGitHub(nombreArchivo, callbackActualizar) {
+            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/${nombreArchivo}`;
             
             const responseLectura = await fetch(url, {
                 headers: { 
@@ -184,7 +185,7 @@
             });
 
             if (!responseLectura.ok) {
-                throw new Error(`Error al acceder a ${nombreArchivo}. Verifica las credenciales.`);
+                throw new Error(`Error al acceder a ${GH_PATH}/${nombreArchivo}. Verifica las credenciales.`);
             }
 
             const data = await responseLectura.json();
@@ -202,14 +203,14 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    message: `Actualización automática de registro en ${nombreArchivo}`,
+                    message: `Actualización automática de registro en ${GH_PATH}/${nombreArchivo}`,
                     content: nuevoContenidoBase64,
                     sha: data.sha
                 })
             });
 
             if (!responseGuardar.ok) {
-                throw new Error(`Error al actualizar ${nombreArchivo} en GitHub.`);
+                throw new Error(`Error al actualizar ${GH_PATH}/${nombreArchivo} en GitHub.`);
             }
 
             return true;
