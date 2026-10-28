@@ -267,6 +267,15 @@
                 status.textContent = `¡Éxito! Registrado en la Nación (${idUnico}) y Cuenta Aperturada (${numCuentaBanco}).`;
                 document.getElementById('formCiudadano').reset();
 
+                // ==========================================================
+                // NUEVO: Guardar sesión y redirigir automáticamente al comercio
+                // ==========================================================
+                localStorage.setItem("creahachip_ciudadano_id", idUnico);
+                
+                setTimeout(() => {
+                    window.location.href = "ser/comercio.html";
+                }, 2000); // Espera 2 segundos para que el usuario lea el mensaje de éxito
+
             } catch (err) {
                 console.error(err);
                 status.className = "mt-4 text-xs text-center text-red-400 font-bold";
