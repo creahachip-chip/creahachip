@@ -1,0 +1,12 @@
+{
+  "mensajes_sala": [
+    {
+      "id_mensaje": "MSG-001",
+      "id_ciudadano": "CH-0001",
+      "nombre_ciudadano": "José Gregorio",
+      "tipo": "Presentación",
+      "mensaje": "¡Bienvenidos a la Nación Soberana de Creahachip! Saludos desde System Gregory PC.",
+      "fecha": "2026-10-28T10:00:00Z"
+    }
+  ]
+}
