@@ -35,13 +35,16 @@ To host this portal for free on GitHub Pages:
 ---
 
 ## 🌐 Supported Languages
-
-The primary interface language is **English**, with dynamic language navigation supported for:
+The primary interface language is Spanish (Español), with dynamic multi-language translation supported for:
 - 🇪🇸 Spanish (Español)
-- 🇫🇷 French (Français)
-- 🇨🇳 Chinese (中文)
+- 🇬🇧 English (English)
+- 🇰🇷 Korean (한국어)
 - 🇯🇵 Japanese (日本語)
-- 🇸🇦 Arabic (العربية)
+- 🇨🇳 Chinese (中文)
+- 🇩🇰 Danish (Dansk)
+- 🇩🇪 German (Deutsch)
+- 🇷🇴 Romanian (Română)
+- 🇮🇹 Italian (Italiano)
 
 ---
 
