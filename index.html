@@ -157,13 +157,13 @@
         </div>
     </footer>
 
-    <!-- Script de Traducciones y Conexión GitHub API -->
+    <!-- Script de Traducciones y Conexión GitHub API (Enfocado en SQL) -->
     <script>
         // Configuración de Conexión a GitHub
         const GH_USER = "creahachip-chip"; 
         const GH_REPO = "creahachip";        
         const GH_PATH = "ser/creahachip-db"; 
-        const GH_TOKEN = "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";
+        const GH_TOKEN = "ghp_TU_TOKEN_CLASICO_AQUI"; // 👈 Tu token clásico ghp_ sin fecha de caducidad
 
         function abrirModalRegistro() {
             document.getElementById('modalRegistro').classList.remove('hidden');
@@ -174,45 +174,56 @@
             document.getElementById('statusMessage').classList.add('hidden');
         }
 
-        async function actualizarArchivoGitHub(nombreArchivo, callbackActualizar) {
-            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/${nombreArchivo}`;
+        // Función para agregar registros SQL a un archivo .sql en GitHub
+        async function agregarRegistroSQL(nombreArchivoSql, sentenciaSql) {
+            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/${nombreArchivoSql}`;
             
+            let shaExistente = null;
+            let contenidoPrevio = "";
+
+            // 1. Leer el archivo SQL existente
             const responseLectura = await fetch(url, {
                 headers: { 
-                    "Authorization": `Bearer ${GH_TOKEN}`,
+                    "Authorization": `token ${GH_TOKEN}`,
                     "Accept": "application/vnd.github.v3+json"
                 }
             });
 
-            if (!responseLectura.ok) {
+            if (responseLectura.ok) {
+                const data = await responseLectura.json();
+                shaExistente = data.sha;
+                contenidoPrevio = decodeURIComponent(escape(atob(data.content)));
+            } else if (responseLectura.status !== 404) {
                 const errData = await responseLectura.json().catch(() => ({}));
-                throw new Error(`Error al acceder a ${GH_PATH}/${nombreArchivo} (${responseLectura.status}): ${errData.message || 'Verifica las credenciales.'}`);
+                throw new Error(`Error en API GitHub (${responseLectura.status}): ${errData.message || 'Verifica el token.'}`);
             }
 
-            const data = await responseLectura.json();
-            const contenidoTexto = decodeURIComponent(escape(atob(data.content)));
-            const jsonActual = JSON.parse(contenidoTexto);
+            // 2. Concatenar la nueva instrucción SQL
+            const nuevoContenidoSql = contenidoPrevio 
+                ? `${contenidoPrevio}\n${sentenciaSql}` 
+                : `-- Base de datos SQL Creahachip\n${sentenciaSql}`;
 
-            const jsonModificado = callbackActualizar(jsonActual);
+            const nuevoContenidoBase64 = btoa(unescape(encodeURIComponent(nuevoContenidoSql)));
 
-            const nuevoContenidoBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(jsonModificado, null, 2))));
+            // 3. Guardar el archivo SQL actualizado
+            const payload = {
+                message: `Inserción SQL automática en ${GH_PATH}/${nombreArchivoSql}`,
+                content: nuevoContenidoBase64
+            };
+            if (shaExistente) payload.sha = shaExistente;
 
             const responseGuardar = await fetch(url, {
                 method: "PUT",
                 headers: {
-                    "Authorization": `Bearer ${GH_TOKEN}`,
+                    "Authorization": `token ${GH_TOKEN}`,
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    message: `Actualización automática de registro en ${GH_PATH}/${nombreArchivo}`,
-                    content: nuevoContenidoBase64,
-                    sha: data.sha
-                })
+                body: JSON.stringify(payload)
             });
 
             if (!responseGuardar.ok) {
                 const errSave = await responseGuardar.json().catch(() => ({}));
-                throw new Error(`Error al actualizar ${GH_PATH}/${nombreArchivo} (${responseGuardar.status}): ${errSave.message || 'No se pudo guardar.'}`);
+                throw new Error(`Error al guardar SQL (${responseGuardar.status}): ${errSave.message}`);
             }
 
             return true;
@@ -229,7 +240,7 @@
 
             status.classList.remove('hidden');
             status.className = "mt-4 text-xs text-center imperial-gold";
-            status.textContent = "Conectando con la Base de Datos de Creahachip...";
+            status.textContent = "Conectando con la Base de Datos SQL de Creahachip...";
             btn.disabled = true;
 
             try {
@@ -237,36 +248,19 @@
                 const numCuentaBanco = "CHBANK-56-" + Math.floor(10000 + Math.random() * 90000);
                 const fechaActual = new Date().toISOString();
 
-                status.textContent = "Registrando Identidad Nacional...";
-                await actualizarArchivoGitHub("nacion.json", (db) => {
-                    if (!db.ciudadanos) db.ciudadanos = [];
-                    db.ciudadanos.push({
-                        id_ciudadano: idUnico,
-                        github_username: githubUser,
-                        nombre_completo: nombre,
-                        billetera_bsc: billetera,
-                        fecha_registro: fechaActual,
-                        estado: "Activo"
-                    });
-                    return db;
-                });
+                // Construcción de sentencias SQL
+                const sqlCiudadano = `INSERT INTO ciudadanos (id_ciudadano, github_username, nombre_completo, billetera_bsc, fecha_registro, estado) VALUES ('${idUnico}', '${githubUser}', '${nombre}', '${billetera}', '${fechaActual}', 'Activo');`;
+                
+                const sqlCuenta = `INSERT INTO cuentas_bancarias (numero_cuenta, id_ciudadano, billetera_asociada, saldo_a1x, tipo_cuenta, fecha_apertura) VALUES ('${numCuentaBanco}', '${idUnico}', '${billetera}', '0.00', 'Personal', '${fechaActual}');`;
 
-                status.textContent = "Aperturando Cuenta en Banco Creahachip...";
-                await actualizarArchivoGitHub("banco_cuentas.json", (db) => {
-                    if (!db.cuentas_bancarias) db.cuentas_bancarias = [];
-                    db.cuentas_bancarias.push({
-                        numero_cuenta: numCuentaBanco,
-                        id_ciudadano: idUnico,
-                        billetera_asociada: billetera,
-                        saldo_a1x: "0.00",
-                        tipo_cuenta: "Personal",
-                        fecha_apertura: fechaActual
-                    });
-                    return db;
-                });
+                status.textContent = "Insertando SQL de Identidad Nacional...";
+                await agregarRegistroSQL("nacion.sql", sqlCiudadano);
+
+                status.textContent = "Insertando SQL de Cuenta Bancaria...";
+                await agregarRegistroSQL("banco_cuentas.sql", sqlCuenta);
 
                 status.className = "mt-4 text-xs text-center text-green-400 font-bold";
-                status.textContent = `¡Éxito! Registrado en la Nación (${idUnico}) y Cuenta Aperturada (${numCuentaBanco}).`;
+                status.textContent = `¡Éxito SQL! Registrado en la Nación (${idUnico}) y Cuenta Aperturada (${numCuentaBanco}).`;
                 document.getElementById('formCiudadano').reset();
 
                 localStorage.setItem("creahachip_ciudadano_id", idUnico);
@@ -278,7 +272,7 @@
             } catch (err) {
                 console.error(err);
                 status.className = "mt-4 text-xs text-center text-red-400 font-bold";
-                status.textContent = "Error: " + err.message;
+                status.textContent = "Error SQL: " + err.message;
             } finally {
                 btn.disabled = false;
             }
