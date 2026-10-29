@@ -179,13 +179,14 @@
             
             const responseLectura = await fetch(url, {
                 headers: { 
-                    "Authorization": `token ${GH_TOKEN}`,
+                    "Authorization": `Bearer ${GH_TOKEN}`,
                     "Accept": "application/vnd.github.v3+json"
                 }
             });
 
             if (!responseLectura.ok) {
-                throw new Error(`Error al acceder a ${GH_PATH}/${nombreArchivo}. Verifica las credenciales.`);
+                const errData = await responseLectura.json().catch(() => ({}));
+                throw new Error(`Error al acceder a ${GH_PATH}/${nombreArchivo} (${responseLectura.status}): ${errData.message || 'Verifica las credenciales.'}`);
             }
 
             const data = await responseLectura.json();
@@ -199,7 +200,7 @@
             const responseGuardar = await fetch(url, {
                 method: "PUT",
                 headers: {
-                    "Authorization": `token ${GH_TOKEN}`,
+                    "Authorization": `Bearer ${GH_TOKEN}`,
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
@@ -210,7 +211,8 @@
             });
 
             if (!responseGuardar.ok) {
-                throw new Error(`Error al actualizar ${GH_PATH}/${nombreArchivo} en GitHub.`);
+                const errSave = await responseGuardar.json().catch(() => ({}));
+                throw new Error(`Error al actualizar ${GH_PATH}/${nombreArchivo} (${responseGuardar.status}): ${errSave.message || 'No se pudo guardar.'}`);
             }
 
             return true;
@@ -412,7 +414,6 @@
             }
         };
 
-        // Función global de cambio de idioma
         function changeLanguage(lang) {
             const t = translations[lang] || translations['es'];
             document.querySelectorAll('[data-i18n]').forEach(el => {
