@@ -123,10 +123,10 @@
     <div id="modalRegistro" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50 p-4">
         <div class="bg-[#0A192F] border-2 border-gold max-w-md w-full p-6 rounded shadow-2xl relative">
             <button onclick="cerrarModalRegistro()" class="absolute top-3 right-3 text-gold hover:text-white font-bold text-xl">&times;</button>
-            <h3 class="text-2xl text-white font-bold text-center mb-1" data-i18n="modal_title">Registro Nacional</h3>
+            <h3 class="text-2xl text-white font-bold text-center mb-1" data-i18n="modal_title">Registro Nacional SQL</h3>
             <p class="text-xs imperial-gold text-center mb-6" data-i18n="modal_subtitle">Nación & Banco Creahachip</p>
 
-            <form id="formCiudadano" onsubmit="procesarRegistro(event)" class="space-y-4">
+            <form id="formCiudadano" onsubmit="procesarRegistroCloudflare(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs uppercase tracking-wider imperial-gold mb-1" data-i18n="label_github">Usuario ID de Ciudadano</label>
                     <input type="text" id="regGithub" required placeholder="ej: josegregorio" class="w-full bg-[#050a14] border border-gray-700 text-white px-3 py-2 text-sm rounded focus:border-gold focus:outline-none">
@@ -140,7 +140,7 @@
                     <input type="text" id="regBilletera" required placeholder="0x..." class="w-full bg-[#050a14] border border-gray-700 text-white px-3 py-2 text-sm rounded focus:border-gold focus:outline-none">
                 </div>
                 <button type="submit" id="btnSubmitForm" class="w-full bg-gold text-navy font-bold py-3 uppercase text-xs tracking-widest hover:bg-yellow-600 transition mt-4" data-i18n="modal_btn">
-                    Registrar en Nación y Banco
+                    Registrar en Base de Datos SQL
                 </button>
             </form>
             <div id="statusMessage" class="mt-4 text-xs text-center hidden"></div>
@@ -157,14 +157,8 @@
         </div>
     </footer>
 
-    <!-- Script de Traducciones y Conexión GitHub API (Enfocado en SQL) -->
+    <!-- Script de Traducciones y Conexión con Cloudflare Worker SQL -->
     <script>
-        // Configuración de Conexión a GitHub
-        const GH_USER = "creahachip-chip"; 
-        const GH_REPO = "creahachip";        
-        const GH_PATH = "ser/creahachip-db"; 
-        const GH_TOKEN = "ghp_TU_TOKEN_CLASICO_AQUI"; // 👈 Tu token clásico ghp_ sin fecha de caducidad
-
         function abrirModalRegistro() {
             document.getElementById('modalRegistro').classList.remove('hidden');
         }
@@ -174,62 +168,7 @@
             document.getElementById('statusMessage').classList.add('hidden');
         }
 
-        // Función para agregar registros SQL a un archivo .sql en GitHub
-        async function agregarRegistroSQL(nombreArchivoSql, sentenciaSql) {
-            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/${nombreArchivoSql}`;
-            
-            let shaExistente = null;
-            let contenidoPrevio = "";
-
-            // 1. Leer el archivo SQL existente
-            const responseLectura = await fetch(url, {
-                headers: { 
-                    "Authorization": `token ${GH_TOKEN}`,
-                    "Accept": "application/vnd.github.v3+json"
-                }
-            });
-
-            if (responseLectura.ok) {
-                const data = await responseLectura.json();
-                shaExistente = data.sha;
-                contenidoPrevio = decodeURIComponent(escape(atob(data.content)));
-            } else if (responseLectura.status !== 404) {
-                const errData = await responseLectura.json().catch(() => ({}));
-                throw new Error(`Error en API GitHub (${responseLectura.status}): ${errData.message || 'Verifica el token.'}`);
-            }
-
-            // 2. Concatenar la nueva instrucción SQL
-            const nuevoContenidoSql = contenidoPrevio 
-                ? `${contenidoPrevio}\n${sentenciaSql}` 
-                : `-- Base de datos SQL Creahachip\n${sentenciaSql}`;
-
-            const nuevoContenidoBase64 = btoa(unescape(encodeURIComponent(nuevoContenidoSql)));
-
-            // 3. Guardar el archivo SQL actualizado
-            const payload = {
-                message: `Inserción SQL automática en ${GH_PATH}/${nombreArchivoSql}`,
-                content: nuevoContenidoBase64
-            };
-            if (shaExistente) payload.sha = shaExistente;
-
-            const responseGuardar = await fetch(url, {
-                method: "PUT",
-                headers: {
-                    "Authorization": `token ${GH_TOKEN}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (!responseGuardar.ok) {
-                const errSave = await responseGuardar.json().catch(() => ({}));
-                throw new Error(`Error al guardar SQL (${responseGuardar.status}): ${errSave.message}`);
-            }
-
-            return true;
-        }
-
-        async function procesarRegistro(e) {
+        async function procesarRegistroCloudflare(e) {
             e.preventDefault();
             const btn = document.getElementById('btnSubmitForm');
             const status = document.getElementById('statusMessage');
@@ -240,34 +179,34 @@
 
             status.classList.remove('hidden');
             status.className = "mt-4 text-xs text-center imperial-gold";
-            status.textContent = "Conectando con la Base de Datos SQL de Creahachip...";
+            status.textContent = "Conectando con la Base de Datos Cloudflare D1...";
             btn.disabled = true;
 
             try {
-                const idUnico = "CH-" + Math.floor(1000 + Math.random() * 9000);
-                const numCuentaBanco = "CHBANK-56-" + Math.floor(10000 + Math.random() * 90000);
-                const fechaActual = new Date().toISOString();
+                // AQUÍ DEBES COLOCAR LA URL DE TU CLOUDFLARE WORKER CUANDO LO CREES
+                const WORKER_URL = "https://api-creahachip.tusubdominio.workers.dev";
 
-                // Construcción de sentencias SQL
-                const sqlCiudadano = `INSERT INTO ciudadanos (id_ciudadano, github_username, nombre_completo, billetera_bsc, fecha_registro, estado) VALUES ('${idUnico}', '${githubUser}', '${nombre}', '${billetera}', '${fechaActual}', 'Activo');`;
-                
-                const sqlCuenta = `INSERT INTO cuentas_bancarias (numero_cuenta, id_ciudadano, billetera_asociada, saldo_a1x, tipo_cuenta, fecha_apertura) VALUES ('${numCuentaBanco}', '${idUnico}', '${billetera}', '0.00', 'Personal', '${fechaActual}');`;
+                const response = await fetch(WORKER_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ githubUser, nombre, billetera })
+                });
 
-                status.textContent = "Insertando SQL de Identidad Nacional...";
-                await agregarRegistroSQL("nacion.sql", sqlCiudadano);
+                const resultado = await response.json();
 
-                status.textContent = "Insertando SQL de Cuenta Bancaria...";
-                await agregarRegistroSQL("banco_cuentas.sql", sqlCuenta);
+                if (resultado.success) {
+                    status.className = "mt-4 text-xs text-center text-green-400 font-bold";
+                    status.textContent = `¡Éxito SQL! Registrado en Nación (${resultado.id_ciudadano}) y Banco (${resultado.numero_cuenta}).`;
+                    document.getElementById('formCiudadano').reset();
 
-                status.className = "mt-4 text-xs text-center text-green-400 font-bold";
-                status.textContent = `¡Éxito SQL! Registrado en la Nación (${idUnico}) y Cuenta Aperturada (${numCuentaBanco}).`;
-                document.getElementById('formCiudadano').reset();
-
-                localStorage.setItem("creahachip_ciudadano_id", idUnico);
-                
-                setTimeout(() => {
-                    window.location.href = "ser/comercio.html";
-                }, 2000);
+                    localStorage.setItem("creahachip_ciudadano_id", resultado.id_ciudadano);
+                    
+                    setTimeout(() => {
+                        window.location.href = "ser/comercio.html";
+                    }, 2000);
+                } else {
+                    throw new Error(resultado.error || "Error al procesar el registro en la base de datos.");
+                }
 
             } catch (err) {
                 console.error(err);
@@ -311,12 +250,12 @@
                 card3_feat2: "• Opciones de Terrenos (Digitales/Físicos)",
                 card3_feat3: "• Escaño en el Consejo de Pares",
                 btn_audience: "Solicitar Audiencia",
-                modal_title: "Registro Nacional",
+                modal_title: "Registro Nacional SQL",
                 modal_subtitle: "Nación & Banco Creahachip",
                 label_UsuarioIDdeCiudadano: "Usuario ID de Ciudadano",
                 label_name: "Nombre Completo",
                 label_wallet: "Billetera BSC (Metamask/TrustWallet)",
-                modal_btn: "Registrar en Nación y Banco",
+                modal_btn: "Registrar en Base de Datos SQL",
                 footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
                 foot_charter: "Carta Magna",
                 foot_legal: "Aviso Legal",
@@ -353,12 +292,12 @@
                 card3_feat2: "• Land Grant Options (Digital/Physical)",
                 card3_feat3: "• Council of Peers Seat",
                 btn_audience: "Request Audience",
-                modal_title: "National Registry",
+                modal_title: "National SQL Registry",
                 modal_subtitle: "Creahachip Nation & Bank",
                 label_UsuarioIDdeCiudadano: "Citizen User ID",
                 label_name: "Full Name",
                 label_wallet: "BSC Wallet (Metamask/TrustWallet)",
-                modal_btn: "Register in Nation & Bank",
+                modal_btn: "Register in SQL Database",
                 footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
                 foot_charter: "Charter",
                 foot_legal: "Legal",
@@ -395,12 +334,12 @@
                 card3_feat2: "• Landzuteilungsoptionen (Digital/Physisch)",
                 card3_feat3: "• Sitz im Rat der Peers",
                 btn_audience: "Audienz Anfordern",
-                modal_title: "Nationale Registrierung",
+                modal_title: "Nationale SQL-Registrierung",
                 modal_subtitle: "Creahachip Nation & Bank",
                 label_UsuarioIDdeCiudadano: "Bürger-Benutzer-ID",
                 label_name: "Vollständiger Name",
                 label_wallet: "BSC Wallet (Metamask/TrustWallet)",
-                modal_btn: "In Nation & Bank Registrieren",
+                modal_btn: "In SQL-Datenbank Registrieren",
                 footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
                 foot_charter: "Charta",
                 foot_legal: "Impressum",
