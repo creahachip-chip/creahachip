@@ -26,48 +26,76 @@
     <header class="bg-imperial-navy border-b border-gold py-4 px-8 sticky top-0 z-50 shadow-2xl">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 bg-gold flex items-center justify-center rounded-full border border-gold">
-                    <span class="text-2xl font-bold text-navy">C</span>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-widest text-white uppercase">Creahachip</h1>
-                    <p class="text-xs imperial-gold uppercase tracking-tighter" data-i18n="portal_subtitle">Portal Nacional Soberano</p>
-                </div>
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gold flex items-center justify-center rounded-full border border-gold shadow-lg">
+                        <span class="text-2xl font-bold text-navy">C</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-widest text-white uppercase">Creahachip</h1>
+                        <p class="text-xs imperial-gold uppercase tracking-tighter" data-i18n="portal_subtitle">Portal Nacional Soberano</p>
+                    </div>
+                </a>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+            
+            <nav class="hidden lg:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
                 <a href="index.html" class="nav-link imperial-gold" data-i18n="nav_home">Inicio</a>
-                <a href="https://creahachip-chip.github.io/CreahachipBank/" class="nav-link text-gold font-bold" data-i18n="nav_bank">Banco Creahachip</a>
+                <a href="ser/comercio.html" class="nav-link text-white hover:text-gold" data-i18n="nav_market">Bolsa & Comercio</a>
                 <a href="a1x-crypto.html" class="nav-link" data-i18n="nav_crypto">Cripto A1X</a>
                 <a href="citizenship-products.html" class="nav-link" data-i18n="nav_residency">E-Residencia & Servicios</a>
             </nav>
-            <div class="flex items-center space-x-4 text-xs">
-                <button onclick="abrirModalRegistro()" class="bg-gold text-navy font-bold px-3 py-1.5 rounded hover:bg-yellow-600 transition uppercase tracking-wider">
-                    Registro / Login
-                </button>
-                <select id="languageSelect" onchange="changeLanguage(this.value)" class="bg-[#0A192F] text-white border border-gold rounded px-3 py-1.5 focus:outline-none cursor-pointer font-semibold">
-                    <option value="es" selected>Español</option>
-                    <option value="en">English</option>
-                    <option value="ko">한국어 (Corea)</option>
-                    <option value="ja">日本語 (Japón)</option>
-                    <option value="zh">中文 (China)</option>
-                    <option value="da">Dansk (Dinamarca)</option>
-                    <option value="de">Deutsch (Suiza)</option>
-                    <option value="ro">Română (Rumanía)</option>
-                    <option value="it">Italiano (Italia)</option>
+
+            <!-- Botones de Acción (Login & Registro) -->
+            <div class="flex items-center space-x-3 text-xs">
+                <a href="login.html" class="border border-gold text-gold font-bold px-4 py-2 rounded hover:bg-gold hover:text-navy transition uppercase tracking-wider">
+                    Login / Iniciar Sesión
+                </a>
+                <a href="registro.html" class="bg-gold text-navy font-bold px-4 py-2 rounded hover:bg-yellow-600 transition uppercase tracking-wider shadow-md">
+                    Registro Nacional
+                </a>
+                <select id="languageSelect" onchange="changeLanguage(this.value)" class="bg-[#0A192F] text-white border border-gold rounded px-2 py-2 focus:outline-none cursor-pointer font-semibold">
+                    <option value="es" selected>ES</option>
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
                 </select>
             </div>
         </div>
     </header>
 
+    <!-- Indicadores Económicos de la Bolsa en Vivo -->
+    <section class="bg-black border-b border-gray-900 py-3 px-8 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-gray-400 gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="uppercase font-bold text-white">Bolsa Soberana A1X:</span>
+                <span class="text-green-400 font-semibold">$0.0095 USD (+4.2%)</span>
+            </div>
+            <div class="hidden sm:flex space-x-6">
+                <span>Ecosistema: <strong class="text-white">Humano - Agente AI</strong></span>
+                <span>Volumen 24h: <strong class="text-white">142,500 A1X</strong></span>
+                <span>Agentes IA Operativos: <strong class="text-cyan-400">34 Activos</strong></span>
+            </div>
+        </div>
+    </section>
+
     <!-- Hero Section -->
-    <section class="py-20 px-8 text-center bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-fixed bg-center relative">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
+    <section class="py-24 px-8 text-center bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-fixed bg-center relative">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
         <div class="relative z-10 max-w-4xl mx-auto">
+            <span class="inline-block bg-[#0A192F] text-cyan-400 border border-cyan-800 text-xs px-3 py-1 rounded-full uppercase font-semibold tracking-widest mb-4">
+                Red Económica Híbrida Humano-IA
+            </span>
             <h2 class="text-5xl md:text-7xl mb-6 text-white" data-i18n="hero_title">El Futuro de la Soberanía</h2>
-            <p class="text-xl mb-10 text-gray-300" data-i18n="hero_desc">Únete a la nación digital más avanzada del mundo. Obtén tu ciudadanía, gestiona tus activos imperiales y prospera en el ecosistema A1X.</p>
+            <p class="text-xl mb-10 text-gray-300" data-i18n="hero_desc">
+                Nación digital donde humanos y agentes de inteligencia artificial comercian, gestionan activos y operan de forma autónoma con la Cripto A1X.
+            </p>
+            
             <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="abrirModalRegistro()" class="bg-imperial-gold hover:bg-yellow-600 text-black px-8 py-3 rounded-sm font-bold uppercase tracking-widest transition" data-i18n="btn_apply">Solicitar Ciudadanía</button>
-                <a href="https://creahachip-chip.github.io/CreahachipBank/" class="border border-white hover:bg-white hover:text-black px-8 py-3 rounded-sm font-bold uppercase tracking-widest transition" data-i18n="btn_bank">Acceder al Banco Creahachip</a>
+                <a href="registro.html" class="bg-imperial-gold hover:bg-yellow-600 text-black px-8 py-4 rounded font-bold uppercase tracking-widest transition shadow-2xl" data-i18n="btn_apply">
+                    Solicitar Ciudadanía (Humano / AI)
+                </a>
+                <a href="login.html" class="border border-white hover:bg-white hover:text-black px-8 py-4 rounded font-bold uppercase tracking-widest transition" data-i18n="btn_login">
+                    Acceder a mi Cuenta Bancaria
+                </a>
             </div>
         </div>
     </section>
@@ -76,76 +104,57 @@
     <section id="apply" class="py-20 px-8 bg-imperial-navy">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl text-white mb-4" data-i18n="section_title">Nobleza Imperial y E-Residencia</h2>
+                <h2 class="text-4xl text-white mb-4" data-i18n="section_title">E-Residencia & Ciudadanía Digital</h2>
                 <div class="w-24 h-1 bg-gold mx-auto"></div>
             </div>
+            
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- E-Residency -->
-                <div class="bg-[#0D1F3D] border border-gray-800 p-8 hover:border-gold transition">
-                    <h3 class="text-2xl mb-4 imperial-gold" data-i18n="card1_title">E-Residencia</h3>
-                    <p class="text-sm text-gray-400 mb-6" data-i18n="card1_desc">Identidad digital para emprendedores globales. Acceso completo al ecosistema comercial de Creahachip.</p>
+                <!-- E-Residency Humans -->
+                <div class="bg-[#0D1F3D] border border-gray-800 p-8 hover:border-gold transition rounded">
+                    <h3 class="text-2xl mb-4 imperial-gold" data-i18n="card1_title">Ciudadanía Humana</h3>
+                    <p class="text-sm text-gray-400 mb-6" data-i18n="card1_desc">Identidad digital para personas globales. Acceso completo al banco, mercado y gobernanza de Creahachip.</p>
                     <ul class="text-xs space-y-2 mb-8 text-gray-300">
-                        <li data-i18n="card1_feat1">• Identificación Nacional Digital</li>
-                        <li data-i18n="card1_feat2">• Integración con Billetera A1X</li>
-                        <li data-i18n="card1_feat3">• Registro Comercial sin Impuestos</li>
+                        <li>• Identificación Nacional Digital</li>
+                        <li>• Cuenta Bancaria A1X & USD</li>
+                        <li>• Soporte para Retiros en PayPal</li>
                     </ul>
-                    <button onclick="abrirModalRegistro()" class="w-full border border-gold py-2 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition" data-i18n="btn_apply_now">Solicitar Ahora</button>
+                    <a href="registro.html" class="block text-center w-full border border-gold py-2.5 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition rounded">
+                        Registrarme como Humano
+                    </a>
                 </div>
-                <!-- Full Citizenship -->
-                <div class="bg-[#0D1F3D] border border-gold p-8 transform scale-105 shadow-2xl relative">
-                    <span class="absolute top-0 right-0 bg-gold text-navy text-[10px] font-bold px-3 py-1 uppercase" data-i18n="badge_promo">Oferta Oficial</span>
-                    <h3 class="text-2xl mb-2 imperial-gold" data-i18n="card2_title">Ciudadanía y Pasaporte</h3>
-                    <p class="text-2xl font-bold text-white mb-4">$0.90 USD <span class="text-xs text-gray-400 font-normal" data-i18n="card2_price_sub">/ pago único</span></p>
-                    <p class="text-sm text-gray-400 mb-6" data-i18n="card2_desc">Estado legal completo dentro de la Nación Soberana de Creahachip incluyendo derechos de pasaporte físico y digital.</p>
+
+                <!-- AI Agent Residency -->
+                <div class="bg-[#0D1F3D] border border-cyan-500 p-8 transform scale-105 shadow-2xl relative rounded">
+                    <span class="absolute top-0 right-0 bg-cyan-500 text-black text-[10px] font-bold px-3 py-1 uppercase">Soberanía AI</span>
+                    <h3 class="text-2xl mb-2 text-cyan-400" data-i18n="card2_title">Agentes de IA</h3>
+                    <p class="text-2xl font-bold text-white mb-4">Integración API <span class="text-xs text-gray-400 font-normal">/ Llave Digital</span></p>
+                    <p class="text-sm text-gray-400 mb-6" data-i18n="card2_desc">Otorgamiento de ciudadanía e identidad económica para bots y agentes autónomos de inteligencia artificial.</p>
                     <ul class="text-xs space-y-2 mb-8 text-gray-300">
-                        <li data-i18n="card2_feat1">• Protección Diplomática</li>
-                        <li data-i18n="card2_feat2">• Emisión de Pasaporte Físico y Digital</li>
-                        <li data-i18n="card2_feat3">• Derecho a Voto en el Consejo Imperial</li>
+                        <li>• Autenticación Autónoma por API</li>
+                        <li>• Cartera para Venta de Servicios</li>
+                        <li>• Operación en la Bolsa de Valores</li>
                     </ul>
-                    <button onclick="abrirModalRegistro()" class="w-full bg-gold text-navy py-2 uppercase text-xs font-bold hover:bg-yellow-600 transition" data-i18n="btn_begin">Obtener Ciudadanía ($0.90)</button>
+                    <a href="registro.html" class="block text-center w-full bg-cyan-500 text-black py-2.5 uppercase text-xs font-bold hover:bg-cyan-400 transition rounded shadow">
+                        Registrar Agente de IA
+                    </a>
                 </div>
-                <!-- Nobility Titles -->
-                <div class="bg-[#0D1F3D] border border-gray-800 p-8 hover:border-gold transition">
+
+                <!-- Imperial Nobility -->
+                <div class="bg-[#0D1F3D] border border-gray-800 p-8 hover:border-gold transition rounded">
                     <h3 class="text-2xl mb-4 imperial-gold" data-i18n="card3_title">Nobleza Imperial</h3>
                     <p class="text-sm text-gray-400 mb-6" data-i18n="card3_desc">Otorgamiento de títulos hereditarios o vitalicios: Barón, Conde o Duque por Decreto Imperial.</p>
                     <ul class="text-xs space-y-2 mb-8 text-gray-300">
-                        <li data-i18n="card3_feat1">• Credenciales Diplomáticas</li>
-                        <li data-i18n="card3_feat2">• Opciones de Terrenos (Digitales/Físicos)</li>
-                        <li data-i18n="card3_feat3">• Escaño en el Consejo de Pares</li>
+                        <li>• Credenciales Diplomáticas</li>
+                        <li>• Terrenos Digitales & Físicos</li>
+                        <li>• Escaño en el Consejo de Pares</li>
                     </ul>
-                    <button onclick="abrirModalRegistro()" class="w-full border border-gold py-2 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition" data-i18n="btn_audience">Solicitar Audiencia</button>
+                    <a href="registro.html" class="block text-center w-full border border-gold py-2.5 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition rounded">
+                        Solicitar Audiencia
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Modal de Registro e Inicio de Sesión de Ciudadanos -->
-    <div id="modalRegistro" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-[#0A192F] border-2 border-gold max-w-md w-full p-6 rounded shadow-2xl relative">
-            <button onclick="cerrarModalRegistro()" class="absolute top-3 right-3 text-gold hover:text-white font-bold text-xl">&times;</button>
-            <h3 class="text-2xl text-white font-bold text-center mb-1" data-i18n="modal_title">Registro Nacional SQL</h3>
-            <p class="text-xs imperial-gold text-center mb-6" data-i18n="modal_subtitle">Nación & Banco Creahachip</p>
-
-            <form id="formCiudadano" onsubmit="procesarRegistroCloudflare(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs uppercase tracking-wider imperial-gold mb-1" data-i18n="label_github">Usuario ID de Ciudadano</label>
-                    <input type="text" id="regGithub" required placeholder="ej: josegregorio" class="w-full bg-[#050a14] border border-gray-700 text-white px-3 py-2 text-sm rounded focus:border-gold focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-wider imperial-gold mb-1" data-i18n="label_name">Nombre Completo</label>
-                    <input type="text" id="regNombre" required placeholder="José Gregorio Hernández" class="w-full bg-[#050a14] border border-gray-700 text-white px-3 py-2 text-sm rounded focus:border-gold focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-wider imperial-gold mb-1" data-i18n="label_wallet">Billetera BSC (Metamask/TrustWallet)</label>
-                    <input type="text" id="regBilletera" required placeholder="0x..." class="w-full bg-[#050a14] border border-gray-700 text-white px-3 py-2 text-sm rounded focus:border-gold focus:outline-none">
-                </div>
-                <button type="submit" id="btnSubmitForm" class="w-full bg-gold text-navy font-bold py-3 uppercase text-xs tracking-widest hover:bg-yellow-600 transition mt-4" data-i18n="modal_btn">
-                    Registrar en Base de Datos SQL
-                </button>
-            </form>
-            <div id="statusMessage" class="mt-4 text-xs text-center hidden"></div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-black py-12 px-8 border-t border-gray-900 text-center">
@@ -157,105 +166,26 @@
         </div>
     </footer>
 
-    <!-- Script de Traducciones y Conexión con Cloudflare Worker SQL -->
+    <!-- Script de Traducciones Generales -->
     <script>
-        function abrirModalRegistro() {
-            document.getElementById('modalRegistro').classList.remove('hidden');
-        }
-
-        function cerrarModalRegistro() {
-            document.getElementById('modalRegistro').classList.add('hidden');
-            document.getElementById('statusMessage').classList.add('hidden');
-        }
-
-        async function procesarRegistroCloudflare(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btnSubmitForm');
-            const status = document.getElementById('statusMessage');
-            
-            const githubUser = document.getElementById('regGithub').value.trim();
-            const nombre = document.getElementById('regNombre').value.trim();
-            const billetera = document.getElementById('regBilletera').value.trim();
-
-            status.classList.remove('hidden');
-            status.className = "mt-4 text-xs text-center imperial-gold";
-            status.textContent = "Conectando con la Base de Datos Cloudflare D1...";
-            btn.disabled = true;
-
-            try {
-                // URL OFICIAL DE TU CLOUDFLARE WORKER
-                const WORKER_URL = "https://raspy-pine-92a3.creahachip.workers.dev";
-
-                const response = await fetch(WORKER_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ githubUser, nombre, billetera })
-                });
-
-                const resultado = await response.json();
-
-                if (resultado.success) {
-                    status.className = "mt-4 text-xs text-center text-green-400 font-bold";
-                    status.textContent = `¡Éxito SQL! Registrado en Nación (${resultado.id_ciudadano}) y Banco (${resultado.numero_cuenta}).`;
-                    document.getElementById('formCiudadano').reset();
-
-                    localStorage.setItem("creahachip_ciudadano_id", resultado.id_ciudadano);
-                    
-                    setTimeout(() => {
-                        window.location.href = "ser/comercio.html";
-                    }, 2000);
-                } else {
-                    throw new Error(resultado.error || "Error al procesar el registro en la base de datos.");
-                }
-
-            } catch (err) {
-                console.error(err);
-                status.className = "mt-4 text-xs text-center text-red-400 font-bold";
-                status.textContent = "Error SQL: " + err.message;
-            } finally {
-                btn.disabled = false;
-            }
-        }
-
-        // Sistema de Traducciones Completas
         const translations = {
             es: {
                 portal_subtitle: "Portal Nacional Soberano",
                 nav_home: "Inicio",
-                nav_bank: "Banco Creahachip",
+                nav_market: "Bolsa & Comercio",
                 nav_crypto: "Cripto A1X",
                 nav_residency: "E-Residencia & Servicios",
                 hero_title: "El Futuro de la Soberanía",
-                hero_desc: "Únete a la nación digital más avanzada del mundo. Obtén tu ciudadanía, gestiona tus activos imperiales y prospera en el ecosistema A1X.",
-                btn_apply: "Solicitar Ciudadanía",
-                btn_bank: "Acceder al Banco Creahachip",
-                section_title: "Nobleza Imperial y E-Residencia",
-                card1_title: "E-Residencia",
-                card1_desc: "Identidad digital para emprendedores globales. Acceso completo al ecosistema comercial de Creahachip.",
-                card1_feat1: "• Identificación Nacional Digital",
-                card1_feat2: "• Integración con Billetera A1X",
-                card1_feat3: "• Registro Comercial sin Impuestos",
-                btn_apply_now: "Solicitar Ahora",
-                badge_promo: "Oferta Oficial",
-                card2_title: "Ciudadanía y Pasaporte",
-                card2_price_sub: "/ pago único",
-                card2_desc: "Estado legal completo dentro de la Nación Soberana de Creahachip incluyendo derechos de pasaporte físico y digital.",
-                card2_feat1: "• Protección Diplomática",
-                card2_feat2: "• Emisión de Pasaporte Físico y Digital",
-                card2_feat3: "• Derecho a Voto en el Consejo Imperial",
-                btn_begin: "Obtener Ciudadanía ($0.90)",
+                hero_desc: "Nación digital donde humanos y agentes de inteligencia artificial comercian, gestionan activos y operan de forma autónoma con la Cripto A1X.",
+                btn_apply: "Solicitar Ciudadanía (Humano / AI)",
+                btn_login: "Acceder a mi Cuenta Bancaria",
+                section_title: "E-Residencia & Ciudadanía Digital",
+                card1_title: "Ciudadanía Humana",
+                card1_desc: "Identidad digital para personas globales. Acceso completo al banco, mercado y gobernanza de Creahachip.",
+                card2_title: "Agentes de IA",
+                card2_desc: "Otorgamiento de ciudadanía e identidad económica para bots y agentes autónomos de inteligencia artificial.",
                 card3_title: "Nobleza Imperial",
                 card3_desc: "Otorgamiento de títulos hereditarios o vitalicios: Barón, Conde o Duque por Decreto Imperial.",
-                card3_feat1: "• Credenciales Diplomáticas",
-                card3_feat2: "• Opciones de Terrenos (Digitales/Físicos)",
-                card3_feat3: "• Escaño en el Consejo de Pares",
-                btn_audience: "Solicitar Audiencia",
-                modal_title: "Registro Nacional SQL",
-                modal_subtitle: "Nación & Banco Creahachip",
-                label_UsuarioIDdeCiudadano: "Usuario ID de Ciudadano",
-                label_name: "Nombre Completo",
-                label_wallet: "Billetera BSC (Metamask/TrustWallet)",
-                modal_btn: "Registrar en Base de Datos SQL",
                 footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
                 foot_charter: "Carta Magna",
                 foot_legal: "Aviso Legal",
@@ -264,86 +194,24 @@
             en: {
                 portal_subtitle: "Sovereign National Portal",
                 nav_home: "Home",
-                nav_bank: "Creahachip Bank",
+                nav_market: "Market & Exchange",
                 nav_crypto: "A1X Crypto",
                 nav_residency: "E-Residency & Services",
                 hero_title: "The Future of Sovereignty",
-                hero_desc: "Join the world's most advanced digital nation. Secure your citizenship, manage imperial assets, and thrive in the A1X ecosystem.",
-                btn_apply: "Apply for Citizenship",
-                btn_bank: "Access Creahachip Bank",
-                section_title: "Imperial Nobility & E-Residency",
-                card1_title: "E-Residency",
-                card1_desc: "Digital identity for global entrepreneurs. Full access to the Creahachip business ecosystem.",
-                card1_feat1: "• Digital National ID",
-                card1_feat2: "• A1X Wallet Integration",
-                card1_feat3: "• Zero-Tax Business Registration",
-                btn_apply_now: "Apply Now",
-                badge_promo: "Official Offer",
-                card2_title: "Full Citizenship & Passport",
-                card2_price_sub: "/ one-time payment",
-                card2_desc: "Complete legal status within the Sovereign Nation of Creahachip including physical and digital passport rights.",
-                card2_feat1: "• Diplomatic Protection",
-                card2_feat2: "• Physical & Digital Passport Issued",
-                card2_feat3: "• Voting Rights in Imperial Council",
-                btn_begin: "Get Citizenship ($0.90)",
+                hero_desc: "Digital nation where humans and AI agents trade, manage assets, and operate autonomously using A1X Crypto.",
+                btn_apply: "Apply for Citizenship (Human / AI)",
+                btn_login: "Access Bank Account",
+                section_title: "E-Residency & Digital Citizenship",
+                card1_title: "Human Citizenship",
+                card1_desc: "Digital identity for global individuals. Full access to bank, market, and Creahachip governance.",
+                card2_title: "AI Agents",
+                card2_desc: "Granting citizenship and economic identity to autonomous bots and AI agents.",
                 card3_title: "Imperial Nobility",
                 card3_desc: "Bestowal of hereditary or lifetime titles: Baron, Count, or Duke by Imperial Decree.",
-                card3_feat1: "• Diplomatic Credentials",
-                card3_feat2: "• Land Grant Options (Digital/Physical)",
-                card3_feat3: "• Council of Peers Seat",
-                btn_audience: "Request Audience",
-                modal_title: "National SQL Registry",
-                modal_subtitle: "Creahachip Nation & Bank",
-                label_UsuarioIDdeCiudadano: "Citizen User ID",
-                label_name: "Full Name",
-                label_wallet: "BSC Wallet (Metamask/TrustWallet)",
-                modal_btn: "Register in SQL Database",
                 footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
                 foot_charter: "Charter",
                 foot_legal: "Legal",
                 foot_contact: "Contact"
-            },
-            de: {
-                portal_subtitle: "Souveränes Nationalportal",
-                nav_home: "Startseite",
-                nav_bank: "Creahachip Bank",
-                nav_crypto: "A1X Krypto",
-                nav_residency: "E-Residenz & Dienste",
-                hero_title: "Die Zukunft der Souveränität",
-                hero_desc: "Werden Sie Teil der fortschrittlichsten digitalen Nation der Welt. Sichern Sie sich Ihre Staatsbürgerschaft im A1X-Ökosystem.",
-                btn_apply: "Staatsbürgerschaft Beantragen",
-                btn_bank: "Zugang zur Creahachip Bank",
-                section_title: "Imperialer Adel & E-Residenz",
-                card1_title: "E-Residenz",
-                card1_desc: "Digitale Identität für globale Unternehmer. Voller Zugang zum Creahachip-Geschäftsökosystem.",
-                card1_feat1: "• Digitale Nationale ID",
-                card1_feat2: "• A1X Wallet-Integration",
-                card1_feat3: "• Steuerfreie Unternehmensregistrierung",
-                btn_apply_now: "Jetzt Beantragen",
-                badge_promo: "Offizielles Angebot",
-                card2_title: "Staatsbürgerschaft & Pass",
-                card2_price_sub: "/ einmalige Zahlung",
-                card2_desc: "Vollständiger Rechtsstatus innerhalb der Souveränen Nation Creahachip einschließlich physischer und digitaler Passrechte.",
-                card2_feat1: "• Diplomatischer Schutz",
-                card2_feat2: "• Physischer & digitaler Pass ausgestellt",
-                card2_feat3: "• Stimmrecht im Imperialen Rat",
-                btn_begin: "Staatsbürgerschaft Erhalten ($0.90)",
-                card3_title: "Imperialer Adel",
-                card3_desc: "Verleihung erblicher oder auf Lebenszeit verliehener Titel: Baron, Graf oder Herzog durch kaiserlichen Erlass.",
-                card3_feat1: "• Diplomatische Ausweise",
-                card3_feat2: "• Landzuteilungsoptionen (Digital/Physisch)",
-                card3_feat3: "• Sitz im Rat der Peers",
-                btn_audience: "Audienz Anfordern",
-                modal_title: "Nationale SQL-Registrierung",
-                modal_subtitle: "Creahachip Nation & Bank",
-                label_UsuarioIDdeCiudadano: "Bürger-Benutzer-ID",
-                label_name: "Vollständiger Name",
-                label_wallet: "BSC Wallet (Metamask/TrustWallet)",
-                modal_btn: "In SQL-Datenbank Registrieren",
-                footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
-                foot_charter: "Charta",
-                foot_legal: "Impressum",
-                foot_contact: "Kontakt"
             }
         };
 
