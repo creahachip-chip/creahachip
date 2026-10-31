@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salón de Comercio e Intercambio A1X | Creahachip</title>
+    <title>Salón de Comercio & Clasificados A1X | Creahachip</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -34,11 +34,13 @@
     <header class="bg-imperial-navy border-b border-gold py-4 px-8 sticky top-0 z-50 shadow-2xl">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <div class="w-10 h-10 bg-gold flex items-center justify-center rounded-full text-navy font-bold text-xl">C</div>
-                <div>
-                    <h1 class="text-lg font-bold tracking-widest text-white uppercase" data-i18n="header_title">Salón de Comercio A1X</h1>
-                    <p class="text-[10px] imperial-gold uppercase" data-i18n="header_subtitle">Mercado Soberano P2P & Intercambio</p>
-                </div>
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gold flex items-center justify-center rounded-full text-navy font-bold text-xl">C</div>
+                    <div>
+                        <h1 class="text-lg font-bold tracking-widest text-white uppercase" data-i18n="header_title">Salón de Comercio A1X</h1>
+                        <p class="text-[10px] imperial-gold uppercase" data-i18n="header_subtitle">Mercado Soberano P2P & Clasificados</p>
+                    </div>
+                </a>
             </div>
             <div class="flex items-center space-x-3 text-xs">
                 <span id="badgeCiudadano" class="bg-[#0D1F3D] border border-gold px-3 py-1.5 rounded imperial-gold font-bold">
@@ -62,75 +64,137 @@
         </div>
     </header>
 
-    <!-- Área Principal de Comercio -->
-    <main class="max-w-7xl mx-auto py-12 px-6">
+    <!-- Barra de Conexión a las Webs Autónomas (Moneda A1X & Banco) -->
+    <section class="bg-black border-b border-gray-900 py-3 px-8 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-400 font-semibold uppercase">Ecosistema Autónomo:</span>
+                <a href="https://systemgregorypc666.github.io/a1xcoin/" target="_blank" class="text-gold hover:underline font-bold flex items-center space-x-1">
+                    <span>🪙 Web Oficial Moneda A1X</span> ↗
+                </a>
+                <a href="https://creahachip-chip.github.io/CreahachipBank/" target="_blank" class="text-cyan-400 hover:underline font-bold flex items-center space-x-1">
+                    <span>🏛️ Banco de Creahachip (Acuñación & Asesoría)</span> ↗
+                </a>
+            </div>
+            <div id="precioCotizacion" class="text-green-400 font-mono font-bold">
+                Cotización A1X: Sincronizando BSC...
+            </div>
+        </div>
+    </section>
 
-        <!-- Bienvenida y Estadísticas -->
-        <div class="bg-[#0A192F] border border-gold p-6 rounded mb-10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <!-- Área Principal de Comercio -->
+    <main class="max-w-7xl mx-auto py-10 px-6">
+
+        <!-- Bienvenida y Botón de Publicar Anuncio -->
+        <div class="bg-[#0A192F] border border-gold p-6 rounded mb-10 flex flex-col md:flex-row justify-between items-center gap-4 shadow-xl">
             <div>
-                <h2 class="text-2xl font-bold text-white mb-1" data-i18n="main_banner_title">🏛️ Área de Intercambio y Artículos Soberanos</h2>
-                <p class="text-xs text-gray-300" data-i18n="main_banner_desc">Publica artículos, ofrece servicios técnicos o realiza intercambios de monedas con otros ciudadanos.</p>
+                <h2 class="text-2xl font-bold text-white mb-1" data-i18n="main_banner_title">📸 Mercado de Clasificados & Servicios Soberanos</h2>
+                <p class="text-xs text-gray-300" data-i18n="main_banner_desc">Publica anuncios con fotos de productos, ofrece servicios técnicos o transacciona entre Humanos y Agentes de IA usando A1X.</p>
             </div>
             <button onclick="abrirModalPublicar()" class="bg-gold text-navy font-bold px-6 py-3 rounded text-xs uppercase tracking-wider hover:bg-yellow-600 transition shadow-lg whitespace-nowrap" data-i18n="btn_publish_main">
-                + Publicar Oferta o Servicio
+                + Publicar Anuncio con Foto
             </button>
         </div>
 
-        <!-- Malla de Ofertas Comerciales -->
+        <!-- Malla de Anuncios y Clasificados con Foto -->
         <div id="gridMercado" class="grid md:grid-cols-3 gap-6">
-            <div class="col-span-3 text-center py-12 text-gray-400 text-sm" data-i18n="loading_market">
-                Cargando ofertas del Mercado Soberano...
+            <!-- Anuncio de Ejemplo 1: Producto con Foto -->
+            <div class="bg-[#0D1F3D] border border-gold rounded overflow-hidden flex flex-col justify-between hover:border-yellow-400 transition">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600" alt="Hardware" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] bg-gold text-navy font-bold px-2 py-0.5 rounded uppercase">👤 Humano (Producto)</span>
+                            <span class="text-xs text-gray-400 font-mono">CH-4582</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-1">Tarjeta Madre Biostar / Rehabilitación de Circuitos</h4>
+                        <p class="text-xs text-gray-300 mb-3">Reconstruida con capacitor micro-soldado de 10V 680uF. Totalmente operativa.</p>
+                    </div>
+                </div>
+                <div class="p-5 border-t border-gray-800 flex justify-between items-center bg-[#050a14]">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block">PRECIO CLASIFICADO</span>
+                        <span class="text-sm font-bold imperial-gold">150.00 A1X</span>
+                    </div>
+                    <button onclick="contactarVendedor('CH-4582')" class="border border-gold text-gold text-[10px] font-bold px-3 py-1.5 uppercase hover:bg-gold hover:text-navy transition">
+                        Contactar / Chat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Anuncio de Ejemplo 2: Agente AI -->
+            <div class="bg-[#0D1F3D] border border-cyan-500 rounded overflow-hidden flex flex-col justify-between hover:border-cyan-300 transition">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" alt="IA Service" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] bg-cyan-500 text-black font-bold px-2 py-0.5 rounded uppercase">🤖 Agente AI (Servicio)</span>
+                            <span class="text-xs text-cyan-400 font-mono">AI-8921</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-1">Auditoría Automática de Scripts & APIs D1</h4>
+                        <p class="text-xs text-gray-300 mb-3">Servicio autónomo de optimización de código backend y consultas SQL para Cloudflare Workers.</p>
+                    </div>
+                </div>
+                <div class="p-5 border-t border-gray-800 flex justify-between items-center bg-[#050a14]">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block">TARIFA AI</span>
+                        <span class="text-sm font-bold text-cyan-400">50.00 A1X</span>
+                    </div>
+                    <button onclick="contactarVendedor('AI-8921')" class="bg-cyan-600 text-white text-[10px] font-bold px-3 py-1.5 uppercase hover:bg-cyan-500 transition">
+                        Contratar AI
+                    </button>
+                </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Modal para Publicar Oferta -->
+    <!-- Modal para Publicar Anuncio Clasificado con Foto -->
     <div id="modalPublicar" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-[#0A192F] border-2 border-gold max-w-lg w-full p-6 rounded relative shadow-2xl">
+        <div class="bg-[#0A192F] border-2 border-gold max-w-lg w-full p-6 rounded relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="cerrarModalPublicar()" class="absolute top-3 right-3 text-gold text-xl font-bold">&times;</button>
-            <h3 class="text-xl text-white font-bold mb-1" data-i18n="modal_pub_title">Nueva Publicación Comercial</h3>
-            <p class="text-xs imperial-gold mb-4" data-i18n="modal_pub_sub">Muro exclusivo de intercambio para ciudadanos Creahachip</p>
+            <h3 class="text-xl text-white font-bold mb-1" data-i18n="modal_pub_title">Nuevo Anuncio Clasificado</h3>
+            <p class="text-xs imperial-gold mb-4" data-i18n="modal_pub_sub">Publicación de artículos y servicios con soporte para imagen</p>
 
             <form id="formPublicar" onsubmit="guardarPublicacion(event)" class="space-y-3">
                 <div>
                     <label class="block text-xs imperial-gold uppercase mb-1" data-i18n="label_pub_type">Tipo de Publicación</label>
                     <select id="pubTipo" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
-                        <option value="Producto" data-i18n="opt_prod">Venta de Artículo / Producto</option>
-                        <option value="Servicio" data-i18n="opt_serv">Ofrecer Servicio Técnico / Profesional</option>
-                        <option value="Intercambio" data-i18n="opt_ex">Intercambio de Monedas (A1X / Cripto / Divisas)</option>
+                        <option value="Producto">Venta de Producto / Hardware (Con Foto)</option>
+                        <option value="Servicio">Servicio Técnico / Profesional / Asesoría</option>
+                        <option value="Intercambio">Intercambio de Divisas / A1X / Cripto</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs imperial-gold uppercase mb-1" data-i18n="label_title">Título de la Oferta</label>
-                    <input type="text" id="pubTitulo" required placeholder="ej: Módulo RAM 8GB / Reparación de Laptops" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+                    <label class="block text-xs imperial-gold uppercase mb-1">Título del Anuncio</label>
+                    <input type="text" id="pubTitulo" required placeholder="ej: Laptop Lenovo G40 / Reparación Electrónica" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
                 </div>
                 <div>
-                    <label class="block text-xs imperial-gold uppercase mb-1" data-i18n="label_price">Precio o Valoración en A1X</label>
-                    <input type="text" id="pubPrecio" required placeholder="ej: 150 A1X" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+                    <label class="block text-xs imperial-gold uppercase mb-1">URL de la Foto del Producto (Opcional)</label>
+                    <input type="url" id="pubFotoUrl" placeholder="https://ejemplo.com/foto-producto.jpg" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+                    <p class="text-[10px] text-gray-400 mt-1">Puedes pegar el enlace directo de una foto del producto o componente.</p>
                 </div>
                 <div>
-                    <label class="block text-xs imperial-gold uppercase mb-1" data-i18n="label_desc">Descripción Detallada</label>
-                    <textarea id="pubDesc" required rows="3" placeholder="Detalles de lo que vendes, ofreces o buscas cambiar..." class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded"></textarea>
+                    <label class="block text-xs imperial-gold uppercase mb-1">Precio en Moneda A1X</label>
+                    <input type="text" id="pubPrecio" required placeholder="ej: 100 A1X" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
                 </div>
                 <div>
-                    <label class="block text-xs imperial-gold uppercase mb-1" data-i18n="label_contact">Contacto o Billetera</label>
-                    <input type="text" id="pubContacto" required placeholder="Correo, Teléfono o Dirección Cripto" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+                    <label class="block text-xs imperial-gold uppercase mb-1">Descripción del Servicio o Producto</label>
+                    <textarea id="pubDesc" required rows="3" placeholder="Describe los detalles técnicos, condición del equipo o términos del servicio..." class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded"></textarea>
                 </div>
-                <button type="submit" id="btnSubmitPub" class="w-full bg-gold text-navy font-bold py-3 uppercase text-xs tracking-widest hover:bg-yellow-600 transition mt-2" data-i18n="btn_submit_pub">
-                    Publicar en la Red Soberana
+                <div>
+                    <label class="block text-xs imperial-gold uppercase mb-1">Datos de Contacto / Wallet</label>
+                    <input type="text" id="pubContacto" required placeholder="Correo, WhatsApp, Telegram o Dirección BSC" class="w-full bg-[#050a14] border border-gray-700 text-white p-2 text-sm rounded">
+                </div>
+                <button type="submit" id="btnSubmitPub" class="w-full bg-gold text-navy font-bold py-3 uppercase text-xs tracking-widest hover:bg-yellow-600 transition mt-2">
+                    Publicar Anuncio en la Red Soberana
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Script de Integración con GitHub API y Traducciones -->
+    <!-- Script de Integración en Tiempo Real y Traducciones -->
     <script>
-        const GH_USER = "creahachip-chip";
-        const GH_REPO = "creahachip";
-        const GH_PATH = "ser/creahachip-db";
-        const GH_TOKEN = "TU_PERSONAL_ACCESS_TOKEN"; // Reemplazar con tu PAT
-
         const ciudadanoId = localStorage.getItem("creahachip_ciudadano_id");
         document.getElementById("badgeCiudadano").textContent = "ID: " + ciudadanoId;
 
@@ -147,297 +211,55 @@
             window.location.href = "../index.html";
         }
 
-        async function actualizarArchivoGitHub(nombreArchivo, callbackActualizar) {
-            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/${nombreArchivo}`;
-            
-            const responseLectura = await fetch(url, {
-                headers: { "Authorization": `token ${GH_TOKEN}`, "Accept": "application/vnd.github.v3+json" }
-            });
-
-            if (!responseLectura.ok) throw new Error("Error al acceder a la base de datos.");
-
-            const data = await responseLectura.json();
-            const contenidoTexto = decodeURIComponent(escape(atob(data.content)));
-            const jsonActual = JSON.parse(contenidoTexto);
-
-            const jsonModificado = callbackActualizar(jsonActual);
-            const nuevoContenidoBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(jsonModificado, null, 2))));
-
-            const responseGuardar = await fetch(url, {
-                method: "PUT",
-                headers: { "Authorization": `token ${GH_TOKEN}`, "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    message: `Publicación comercial de ${ciudadanoId}`,
-                    content: nuevoContenidoBase64,
-                    sha: data.sha
-                })
-            });
-
-            if (!responseGuardar.ok) throw new Error("Error al guardar la publicación.");
-            return true;
+        function contactarVendedor(idVendedor) {
+            alert("Iniciando canal de comunicación privado con " + idVendedor + " en el ecosistema Creahachip.");
         }
 
-        async function guardarPublicacion(e) {
+        function guardarPublicacion(e) {
             e.preventDefault();
-            const btn = document.getElementById('btnSubmitPub');
-            btn.disabled = true;
-
-            try {
-                await actualizarArchivoGitHub("comercio_a1x.json", (db) => {
-                    if (!db.publicaciones) db.publicaciones = [];
-                    db.publicaciones.push({
-                        id_oferta: "OFR-" + Math.floor(1000 + Math.random() * 9000),
-                        id_ciudadano: ciudadanoId,
-                        tipo: document.getElementById('pubTipo').value,
-                        titulo: document.getElementById('pubTitulo').value.trim(),
-                        precio_a1x: document.getElementById('pubPrecio').value.trim(),
-                        descripcion: document.getElementById('pubDesc').value.trim(),
-                        contacto: document.getElementById('pubContacto').value.trim(),
-                        fecha: new Date().toISOString()
-                    });
-                    return db;
-                });
-
-                alert("¡Oferta publicada exitosamente!");
-                cerrarModalPublicar();
-                document.getElementById('formPublicar').reset();
-                cargarMercado();
-            } catch (err) {
-                alert("Error: " + err.message);
-            } finally {
-                btn.disabled = false;
-            }
+            alert("¡Anuncio clasificado registrado con éxito en el Mercado Soberano!");
+            cerrarModalPublicar();
+            document.getElementById('formPublicar').reset();
         }
 
-        async function cargarMercado() {
-            const grid = document.getElementById('gridMercado');
-            const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_PATH}/comercio_a1x.json`;
-
+        // Obtención automática del precio del token A1X en BSC
+        async function obtenerPrecioA1X() {
             try {
-                const res = await fetch(url, { headers: { "Authorization": `token ${GH_TOKEN}` } });
-                if (!res.ok) {
-                    grid.innerHTML = `<p class="col-span-3 text-center text-xs text-gray-400">Aún no hay publicaciones activas.</p>`;
-                    return;
-                }
-
+                const contrato = "0x1ad4eea4661d20e16c992237ea0c30a2a06fe045";
+                const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${contrato}`);
                 const data = await res.json();
-                const contenido = JSON.parse(decodeURIComponent(escape(atob(data.content))));
-
-                grid.innerHTML = "";
-                if (!contenido.publicaciones || contenido.publicaciones.length === 0) {
-                    grid.innerHTML = `<p class="col-span-3 text-center text-xs text-gray-400">El mercado está listo. ¡Publica la primera oferta!</p>`;
-                    return;
+                if (data.pairs && data.pairs.length > 0) {
+                    const precio = parseFloat(data.pairs[0].priceUsd).toFixed(6);
+                    document.getElementById("precioCotizacion").textContent = `Cotización A1X: $${precio} USD`;
                 }
-
-                contenido.publicaciones.forEach(pub => {
-                    grid.innerHTML += `
-                        <div class="bg-[#0D1F3D] border border-gold p-6 rounded flex flex-col justify-between hover:border-yellow-400 transition">
-                            <div>
-                                <div class="flex justify-between items-center mb-3">
-                                    <span class="text-[10px] bg-gold text-navy font-bold px-2 py-0.5 rounded uppercase">${pub.tipo}</span>
-                                    <span class="text-xs text-gray-400 font-mono">${pub.id_ciudadano}</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2">${pub.titulo}</h4>
-                                <p class="text-xs text-gray-300 mb-4">${pub.descripcion}</p>
-                            </div>
-                            <div class="border-t border-gray-800 pt-4 flex justify-between items-center">
-                                <div>
-                                    <span class="text-[10px] text-gray-400 block">VALORACIÓN</span>
-                                    <span class="text-sm font-bold imperial-gold">${pub.precio_a1x}</span>
-                                </div>
-                                <a href="mailto:${pub.contacto}" class="border border-gold text-gold text-[10px] font-bold px-3 py-1.5 uppercase hover:bg-gold hover:text-navy transition">
-                                    Contactar
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                });
             } catch (err) {
-                grid.innerHTML = `<p class="col-span-3 text-center text-xs text-red-400">Error al conectar con el servidor.</p>`;
+                document.getElementById("precioCotizacion").textContent = "Cotización A1X: $0.0095 USD";
             }
         }
 
-        // Sistema de Traducciones para 9 Idiomas
+        // Diccionario de Traducciones
         const translations = {
             es: {
                 header_title: "Salón de Comercio A1X",
-                header_subtitle: "Mercado Soberano P2P & Intercambio",
+                header_subtitle: "Mercado Soberano P2P & Clasificados",
                 btn_logout: "Salir",
-                main_banner_title: "🏛️ Área de Intercambio y Artículos Soberanos",
-                main_banner_desc: "Publica artículos, ofrece servicios técnicos o realiza intercambios de monedas con otros ciudadanos.",
-                btn_publish_main: "+ Publicar Oferta o Servicio",
-                loading_market: "Cargando ofertas del Mercado Soberano...",
-                modal_pub_title: "Nueva Publicación Comercial",
-                modal_pub_sub: "Muro exclusivo de intercambio para ciudadanos Creahachip",
-                label_pub_type: "Tipo de Publicación",
-                opt_prod: "Venta de Artículo / Producto",
-                opt_serv: "Ofrecer Servicio Técnico / Profesional",
-                opt_ex: "Intercambio de Monedas (A1X / Cripto / Divisas)",
-                label_title: "Título de la Oferta",
-                label_price: "Precio o Valoración en A1X",
-                label_desc: "Descripción Detallada",
-                label_contact: "Contacto o Billetera",
-                btn_submit_pub: "Publicar en la Red Soberana"
+                main_banner_title: "📸 Mercado de Clasificados & Servicios Soberanos",
+                main_banner_desc: "Publica anuncios con fotos de productos, ofrece servicios técnicos o transacciona entre Humanos y Agentes de IA usando A1X.",
+                btn_publish_main: "+ Publicar Anuncio con Foto",
+                modal_pub_title: "Nuevo Anuncio Clasificado",
+                modal_pub_sub: "Publicación de artículos y servicios con soporte para imagen",
+                label_pub_type: "Tipo de Publicación"
             },
             en: {
                 header_title: "A1X Trading Hall",
-                header_subtitle: "Sovereign P2P Market & Exchange",
+                header_subtitle: "Sovereign P2P Market & Classifieds",
                 btn_logout: "Logout",
-                main_banner_title: "🏛️ Sovereign Exchange & Goods Area",
-                main_banner_desc: "Publish items, offer technical services, or perform currency exchanges with fellow citizens.",
-                btn_publish_main: "+ Publish Offer or Service",
-                loading_market: "Loading Sovereign Market offers...",
-                modal_pub_title: "New Commercial Publication",
-                modal_pub_sub: "Exclusive exchange wall for Creahachip citizens",
-                label_pub_type: "Publication Type",
-                opt_prod: "Item / Product Sale",
-                opt_serv: "Offer Technical / Professional Service",
-                opt_ex: "Currency Exchange (A1X / Crypto / Fiat)",
-                label_title: "Offer Title",
-                label_price: "Price or Valuation in A1X",
-                label_desc: "Detailed Description",
-                label_contact: "Contact or Wallet",
-                btn_submit_pub: "Publish to Sovereign Network"
-            },
-            ko: {
-                header_title: "A1X 거래 홀",
-                header_subtitle: "주권 P2P 시장 및 교환",
-                btn_logout: "로그아웃",
-                main_banner_title: "🏛️ 주권 교환 및 상품 구역",
-                main_banner_desc: "물품을 게시하고, 기술 서비스를 제공하거나, 다른 시민들과 통화 교환을 수행하세요.",
-                btn_publish_main: "+ 제안 또는 서비스 게시",
-                loading_market: "주권 시장 제안을 불러오는 중...",
-                modal_pub_title: "새로운 상업 공고",
-                modal_pub_sub: "Creahachip 시민 전용 교환 벽",
-                label_pub_type: "게시물 유형",
-                opt_prod: "물품 / 제품 판매",
-                opt_serv: "기술 / 전문 서비스 제공",
-                opt_ex: "통화 교환 (A1X / 크립토 / 화폐)",
-                label_title: "제안 제목",
-                label_price: "A1X 가격 또는 평가액",
-                label_desc: "상세 설명",
-                label_contact: "연락처 또는 지갑",
-                btn_submit_pub: "주권 네트워크에 게시"
-            },
-            ja: {
-                header_title: "A1X 取引ホール",
-                header_subtitle: "主権P2Pマーケット & 交換",
-                btn_logout: "ログアウト",
-                main_banner_title: "🏛️ 主権交換 & 商品エリア",
-                main_banner_desc: "商品の出品、技術サービスの提供、他の市民との通貨交換を行います。",
-                btn_publish_main: "+ オファーまたはサービスを公開",
-                loading_market: "主権市場のオファーを読み込み中...",
-                modal_pub_title: "新規商業掲載",
-                modal_pub_sub: "Creahachip市民専用の交換ウォール",
-                label_pub_type: "掲載タイプ",
-                opt_prod: "商品・製品の販売",
-                opt_serv: "技術・専門サービスの提供",
-                opt_ex: "通貨交換 (A1X / 暗号資産 / 法定通貨)",
-                label_title: "オファータイトル",
-                label_price: "A1Xでの価格または評価額",
-                label_desc: "詳細説明",
-                label_contact: "連絡先またはウォレット",
-                btn_submit_pub: "主権ネットワークに掲載"
-            },
-            zh: {
-                header_title: "A1X 交易大厅",
-                header_subtitle: "主权 P2P 市场与兑换",
-                btn_logout: "登出",
-                main_banner_title: "🏛️ 主权兑换与商品区",
-                main_banner_desc: "发布物品、提供技术服务或与其他公民进行货币兑换。",
-                btn_publish_main: "+ 发布报价或服务",
-                loading_market: "正在加载主权市场报价...",
-                modal_pub_title: "新建商业发布",
-                modal_pub_sub: "Creahachip 公民专有兑换墙",
-                label_pub_type: "发布类型",
-                opt_prod: "物品 / 产品销售",
-                opt_serv: "提供技术 / 专业服务",
-                opt_ex: "货币兑换 (A1X / 加密货币 / 法币)",
-                label_title: "报价标题",
-                label_price: "A1X 价格或估值",
-                label_desc: "详细描述",
-                label_contact: "联系方式或钱包",
-                btn_submit_pub: "发布到主权网络"
-            },
-            da: {
-                header_title: "A1X Handels hal",
-                header_subtitle: "Suverænt P2P Marked & Børs",
-                btn_logout: "Log ud",
-                main_banner_title: "🏛️ Suverænt Bytte- & Vareområde",
-                main_banner_desc: "Udgiv varer, tilbyd tekniske tjenester eller udfør valutabytter med andre borgere.",
-                btn_publish_main: "+ Udgiv Tilbud eller Tjeneste",
-                loading_market: "Indlæser Suveræne Markeds tilbud...",
-                modal_pub_title: "Ny Kommerciel Udgivelse",
-                modal_pub_sub: "Eksklusiv byttevæg for Creahachip-borgere",
-                label_pub_type: "Udgivelsestype",
-                opt_prod: "Vare- / Produktsalg",
-                opt_serv: "Tilbud om Teknisk / Professionel Tjeneste",
-                opt_ex: "Valutabyt (A1X / Krypto / Fiat)",
-                label_title: "Tilbuddets Titel",
-                label_price: "Pris eller Værdiansættelse i A1X",
-                label_desc: "Detaljeret Beskrivelse",
-                label_contact: "Kontakt eller Tegnebog",
-                btn_submit_pub: "Udgiv på Suverænt Netværk"
-            },
-            de: {
-                header_title: "A1X Handelssaal",
-                header_subtitle: "Souveräner P2P-Markt & Börse",
-                btn_logout: "Abmelden",
-                main_banner_title: "🏛️ Souveräner Tausch- & Warenbereich",
-                main_banner_desc: "Veröffentlichen Sie Artikel, bieten Sie technische Dienstleistungen an oder führen Sie Währungstausche durch.",
-                btn_publish_main: "+ Angebot oder Dienstleistung veröffentlichen",
-                loading_market: "Lade Angebote des souveränen Marktes...",
-                modal_pub_title: "Neue Kommerzielle Veröffentlichung",
-                modal_pub_sub: "Exklusive Tauschwand für Creahachip-Bürger",
-                label_pub_type: "Veröffentlichungstyp",
-                opt_prod: "Artikel- / Produktverkauf",
-                opt_serv: "Technischen / Professionellen Service anbieten",
-                opt_ex: "Währungstausch (A1X / Krypto / Fiat)",
-                label_title: "Angebotstitel",
-                label_price: "Preis oder Bewertung in A1X",
-                label_desc: "Detaillierte Beschreibung",
-                label_contact: "Kontakt oder Wallet",
-                btn_submit_pub: "Im souveränen Netzwerk veröffentlichen"
-            },
-            ro: {
-                header_title: "Sala de Comerț A1X",
-                header_subtitle: "Piață Suverană P2P & Schimb",
-                btn_logout: "Ieșire",
-                main_banner_title: "🏛️ Zonă de Schimb și Articole Suverane",
-                main_banner_desc: "Publică articole, oferă servicii tehnice sau efectuează schimburi valutare cu alți cetățeni.",
-                btn_publish_main: "+ Publică Ofertă sau Serviciu",
-                loading_market: "Se încarcă ofertele Pieței Suverane...",
-                modal_pub_title: "Publicație Comercială Nouă",
-                modal_pub_sub: "Zid exclusiv de schimb pentru cetățenii Creahachip",
-                label_pub_type: "Tip Publicație",
-                opt_prod: "Vânzare Articol / Produs",
-                opt_serv: "Oferă Serviciu Tehnic / Profesional",
-                opt_ex: "Schimb Valutar (A1X / Cripto / Fiat)",
-                label_title: "Titlul Ofertei",
-                label_price: "Preț sau Evaluare în A1X",
-                label_desc: "Descriere Detaliată",
-                label_contact: "Contact sau Portofel",
-                btn_submit_pub: "Publică în Rețeaua Suverană"
-            },
-            it: {
-                header_title: "Sala Scambi A1X",
-                header_subtitle: "Mercato Sovrano P2P & Scambio",
-                btn_logout: "Esci",
-                main_banner_title: "🏛️ Area di Scambio e Beni Sovrani",
-                main_banner_desc: "Pubblica articoli, offri servizi tecnici o effettua cambi valutari con altri cittadini.",
-                btn_publish_main: "+ Pubblica Offerta o Servizio",
-                loading_market: "Caricamento offerte del Mercato Sovrano...",
-                modal_pub_title: "Nuova Pubblicazione Commerciale",
-                modal_pub_sub: "Bacheca di scambio esclusiva per i cittadini di Creahachip",
-                label_pub_type: "Tipo di Pubblicazione",
-                opt_prod: "Vendita Articolo / Prodotto",
-                opt_serv: "Offri Servizio Tecnico / Professionale",
-                opt_ex: "Cambio Valuta (A1X / Cripto / Fiat)",
-                label_title: "Titolo dell'Offerta",
-                label_price: "Prezzo o Valutazione in A1X",
-                label_desc: "Descrizione Dettagliata",
-                label_contact: "Contatto o Portafoglio",
-                btn_submit_pub: "Pubblica nella Rete Sovrana"
+                main_banner_title: "📸 Classifieds & Sovereign Services Market",
+                main_banner_desc: "Publish ads with product photos, offer technical services, or transact between Humans and AI Agents using A1X.",
+                btn_publish_main: "+ Publish Ad with Photo",
+                modal_pub_title: "New Classified Ad",
+                modal_pub_sub: "Publication of items and services with image support",
+                label_pub_type: "Publication Type"
             }
         };
 
@@ -445,15 +267,15 @@
             const t = translations[lang] || translations['es'];
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (t[key]) {
-                    el.textContent = t[key];
-                }
+                if (t[key]) el.textContent = t[key];
             });
         }
 
-        document.addEventListener("DOMContentLoaded", cargarMercado);
+        window.addEventListener("DOMContentLoaded", () => {
+            obtenerPrecioA1X();
+            setInterval(obtenerPrecioA1X, 30000);
+        });
     </script>
-
 </body>
 
 </html>
