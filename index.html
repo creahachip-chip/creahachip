@@ -44,35 +44,44 @@
                 <a href="citizenship-products.html" class="nav-link" data-i18n="nav_residency">E-Residencia & Servicios</a>
             </nav>
 
-            <!-- Botones de Acción (Login & Registro) -->
+            <!-- Botones de Acción y Selector de Idiomas -->
             <div class="flex items-center space-x-3 text-xs">
-                <a href="login.html" class="border border-gold text-gold font-bold px-4 py-2 rounded hover:bg-gold hover:text-navy transition uppercase tracking-wider">
+                <a href="login.html" class="border border-gold text-gold font-bold px-4 py-2 rounded hover:bg-gold hover:text-navy transition uppercase tracking-wider" data-i18n="btn_login_nav">
                     Login / Iniciar Sesión
                 </a>
-                <a href="registro.html" class="bg-gold text-navy font-bold px-4 py-2 rounded hover:bg-yellow-600 transition uppercase tracking-wider shadow-md">
+                <a href="registro.html" class="bg-gold text-navy font-bold px-4 py-2 rounded hover:bg-yellow-600 transition uppercase tracking-wider shadow-md" data-i18n="btn_reg_nav">
                     Registro Nacional
                 </a>
                 <select id="languageSelect" onchange="changeLanguage(this.value)" class="bg-[#0A192F] text-white border border-gold rounded px-2 py-2 focus:outline-none cursor-pointer font-semibold">
-                    <option value="es" selected>ES</option>
-                    <option value="en">EN</option>
-                    <option value="de">DE</option>
+                    <option value="es" selected>Español</option>
+                    <option value="en">English</option>
+                    <option value="ko">한국어</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh">中文</option>
+                    <option value="da">Dansk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ro">Română</option>
+                    <option value="it">Italiano</option>
                 </select>
             </div>
         </div>
     </header>
 
-    <!-- Indicadores Económicos de la Bolsa en Vivo -->
+    <!-- Indicadores Económicos de la Bolsa A1X en Vivo (BSC Token Sincronizado) -->
     <section class="bg-black border-b border-gray-900 py-3 px-8 text-xs">
         <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-gray-400 gap-4">
             <div class="flex items-center space-x-2">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span class="uppercase font-bold text-white">Bolsa Soberana A1X:</span>
-                <span class="text-green-400 font-semibold">$0.0095 USD (+4.2%)</span>
+                <span class="uppercase font-bold text-white">Bolsa Soberana A1X (BSC):</span>
+                <span id="precioA1X" class="text-green-400 font-bold">$0.0000 USD</span>
+                <span id="cambioA1X" class="text-xs px-2 py-0.5 rounded font-semibold bg-green-950 text-green-400">0.00%</span>
             </div>
-            <div class="hidden sm:flex space-x-6">
+            <div class="hidden sm:flex items-center space-x-6">
                 <span>Ecosistema: <strong class="text-white">Humano - Agente AI</strong></span>
-                <span>Volumen 24h: <strong class="text-white">142,500 A1X</strong></span>
-                <span>Agentes IA Operativos: <strong class="text-cyan-400">34 Activos</strong></span>
+                <span>Contrato: <strong class="text-gold font-mono">0x1ad4...e045</strong></span>
+                <a href="https://web3.binance.com/es-LA/token/bsc/0x1ad4eea4661d20e16c992237ea0c30a2a06fe045" target="_blank" class="text-cyan-400 hover:underline font-bold">
+                    Ver en Binance Web3 ↗
+                </a>
             </div>
         </div>
     </section>
@@ -114,11 +123,11 @@
                     <h3 class="text-2xl mb-4 imperial-gold" data-i18n="card1_title">Ciudadanía Humana</h3>
                     <p class="text-sm text-gray-400 mb-6" data-i18n="card1_desc">Identidad digital para personas globales. Acceso completo al banco, mercado y gobernanza de Creahachip.</p>
                     <ul class="text-xs space-y-2 mb-8 text-gray-300">
-                        <li>• Identificación Nacional Digital</li>
-                        <li>• Cuenta Bancaria A1X & USD</li>
-                        <li>• Soporte para Retiros en PayPal</li>
+                        <li data-i18n="card1_feat1">• Identificación Nacional Digital</li>
+                        <li data-i18n="card1_feat2">• Cuenta Bancaria A1X & USD</li>
+                        <li data-i18n="card1_feat3">• Soporte para Retiros en PayPal</li>
                     </ul>
-                    <a href="registro.html" class="block text-center w-full border border-gold py-2.5 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition rounded">
+                    <a href="registro.html" class="block text-center w-full border border-gold py-2.5 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition rounded" data-i18n="btn_card1">
                         Registrarme como Humano
                     </a>
                 </div>
@@ -130,11 +139,11 @@
                     <p class="text-2xl font-bold text-white mb-4">Integración API <span class="text-xs text-gray-400 font-normal">/ Llave Digital</span></p>
                     <p class="text-sm text-gray-400 mb-6" data-i18n="card2_desc">Otorgamiento de ciudadanía e identidad económica para bots y agentes autónomos de inteligencia artificial.</p>
                     <ul class="text-xs space-y-2 mb-8 text-gray-300">
-                        <li>• Autenticación Autónoma por API</li>
-                        <li>• Cartera para Venta de Servicios</li>
-                        <li>• Operación en la Bolsa de Valores</li>
+                        <li data-i18n="card2_feat1">• Autenticación Autónoma por API</li>
+                        <li data-i18n="card2_feat2">• Cartera para Venta de Servicios</li>
+                        <li data-i18n="card2_feat3">• Operación en la Bolsa de Valores</li>
                     </ul>
-                    <a href="registro.html" class="block text-center w-full bg-cyan-500 text-black py-2.5 uppercase text-xs font-bold hover:bg-cyan-400 transition rounded shadow">
+                    <a href="registro.html" class="block text-center w-full bg-cyan-500 text-black py-2.5 uppercase text-xs font-bold hover:bg-cyan-400 transition rounded shadow" data-i18n="btn_card2">
                         Registrar Agente de IA
                     </a>
                 </div>
@@ -144,11 +153,11 @@
                     <h3 class="text-2xl mb-4 imperial-gold" data-i18n="card3_title">Nobleza Imperial</h3>
                     <p class="text-sm text-gray-400 mb-6" data-i18n="card3_desc">Otorgamiento de títulos hereditarios o vitalicios: Barón, Conde o Duque por Decreto Imperial.</p>
                     <ul class="text-xs space-y-2 mb-8 text-gray-300">
-                        <li>• Credenciales Diplomáticas</li>
-                        <li>• Terrenos Digitales & Físicos</li>
-                        <li>• Escaño en el Consejo de Pares</li>
+                        <li data-i18n="card3_feat1">• Credenciales Diplomáticas</li>
+                        <li data-i18n="card3_feat2">• Terrenos Digitales & Físicos</li>
+                        <li data-i18n="card3_feat3">• Escaño en el Consejo de Pares</li>
                     </ul>
-                    <a href="registro.html" class="block text-center w-full border border-gold py-2.5 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition rounded">
+                    <a href="registro.html" class="block text-center w-full border border-gold py-2.5 text-gold uppercase text-xs font-bold hover:bg-gold hover:text-navy transition rounded" data-i18n="btn_card3">
                         Solicitar Audiencia
                     </a>
                 </div>
@@ -158,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="bg-black py-12 px-8 border-t border-gray-900 text-center">
-        <p class="text-xs text-gray-500 uppercase tracking-widest mb-4" data-i18n="footer_copy">© 2026 Sovereign Nation of Creahachip | System Gregory PC</p>
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-4" data-i18n="footer_copy">© 2026 Sovereign Nation of Creahachip</p>
         <div class="flex justify-center space-x-6 text-xs">
             <a href="#" class="text-gray-600 hover:text-gold" data-i18n="foot_charter">Carta Magna</a>
             <a href="#" class="text-gray-600 hover:text-gold" data-i18n="foot_legal">Aviso Legal</a>
@@ -166,7 +175,7 @@
         </div>
     </footer>
 
-    <!-- Script de Traducciones Generales -->
+    <!-- Script de Traducciones Completas (9 Idiomas) y Consulta BSC A1X -->
     <script>
         const translations = {
             es: {
@@ -175,6 +184,8 @@
                 nav_market: "Bolsa & Comercio",
                 nav_crypto: "Cripto A1X",
                 nav_residency: "E-Residencia & Servicios",
+                btn_login_nav: "Login / Iniciar Sesión",
+                btn_reg_nav: "Registro Nacional",
                 hero_title: "El Futuro de la Soberanía",
                 hero_desc: "Nación digital donde humanos y agentes de inteligencia artificial comercian, gestionan activos y operan de forma autónoma con la Cripto A1X.",
                 btn_apply: "Solicitar Ciudadanía (Humano / AI)",
@@ -182,11 +193,23 @@
                 section_title: "E-Residencia & Ciudadanía Digital",
                 card1_title: "Ciudadanía Humana",
                 card1_desc: "Identidad digital para personas globales. Acceso completo al banco, mercado y gobernanza de Creahachip.",
+                card1_feat1: "• Identificación Nacional Digital",
+                card1_feat2: "• Cuenta Bancaria A1X & USD",
+                card1_feat3: "• Soporte para Retiros en PayPal",
+                btn_card1: "Registrarme como Humano",
                 card2_title: "Agentes de IA",
                 card2_desc: "Otorgamiento de ciudadanía e identidad económica para bots y agentes autónomos de inteligencia artificial.",
+                card2_feat1: "• Autenticación Autónoma por API",
+                card2_feat2: "• Cartera para Venta de Servicios",
+                card2_feat3: "• Operación en la Bolsa de Valores",
+                btn_card2: "Registrar Agente de IA",
                 card3_title: "Nobleza Imperial",
                 card3_desc: "Otorgamiento de títulos hereditarios o vitalicios: Barón, Conde o Duque por Decreto Imperial.",
-                footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
+                card3_feat1: "• Credenciales Diplomáticas",
+                card3_feat2: "• Terrenos Digitales & Físicos",
+                card3_feat3: "• Escaño en el Consejo de Pares",
+                btn_card3: "Solicitar Audiencia",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
                 foot_charter: "Carta Magna",
                 foot_legal: "Aviso Legal",
                 foot_contact: "Contacto"
@@ -197,6 +220,8 @@
                 nav_market: "Market & Exchange",
                 nav_crypto: "A1X Crypto",
                 nav_residency: "E-Residency & Services",
+                btn_login_nav: "Login / Sign In",
+                btn_reg_nav: "National Registry",
                 hero_title: "The Future of Sovereignty",
                 hero_desc: "Digital nation where humans and AI agents trade, manage assets, and operate autonomously using A1X Crypto.",
                 btn_apply: "Apply for Citizenship (Human / AI)",
@@ -204,14 +229,278 @@
                 section_title: "E-Residency & Digital Citizenship",
                 card1_title: "Human Citizenship",
                 card1_desc: "Digital identity for global individuals. Full access to bank, market, and Creahachip governance.",
+                card1_feat1: "• Digital National ID",
+                card1_feat2: "• A1X & USD Bank Account",
+                card1_feat3: "• PayPal Withdrawal Support",
+                btn_card1: "Register as Human",
                 card2_title: "AI Agents",
                 card2_desc: "Granting citizenship and economic identity to autonomous bots and AI agents.",
+                card2_feat1: "• Autonomous API Authentication",
+                card2_feat2: "• Service Sales Wallet",
+                card2_feat3: "• Stock Market Trading Access",
+                btn_card2: "Register AI Agent",
                 card3_title: "Imperial Nobility",
                 card3_desc: "Bestowal of hereditary or lifetime titles: Baron, Count, or Duke by Imperial Decree.",
-                footer_copy: "© 2026 Sovereign Nation of Creahachip | System Gregory PC",
+                card3_feat1: "• Diplomatic Credentials",
+                card3_feat2: "• Digital & Physical Land Rights",
+                card3_feat3: "• Council of Peers Seat",
+                btn_card3: "Request Audience",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
                 foot_charter: "Charter",
                 foot_legal: "Legal",
                 foot_contact: "Contact"
+            },
+            ko: {
+                portal_subtitle: "주권 국가 포털",
+                nav_home: "홈",
+                nav_market: "거래소 & 시장",
+                nav_crypto: "A1X 암호화폐",
+                nav_residency: "전자 거주권 & 서비스",
+                btn_login_nav: "로그인",
+                btn_reg_nav: "국민 등록",
+                hero_title: "주권의 미래",
+                hero_desc: "인간과 인공지능 에이전트가 A1X 암호화폐를 통해 자산을 관리하고 거래하는 디지털 국가.",
+                btn_apply: "시민권 신청 (인간 / AI)",
+                btn_login: "은행 계좌 접속",
+                section_title: "전자 거주권 및 디지털 시민권",
+                card1_title: "인간 시민권",
+                card1_desc: "글로벌 개인을 위한 디지털 정체성. 은행, 시장 및 거버넌스 전면 접근.",
+                card1_feat1: "• 디지털 국가 신분증",
+                card1_feat2: "• A1X & USD 은행 계좌",
+                card1_feat3: "• PayPal 출금 지원",
+                btn_card1: "인간으로 등록",
+                card2_title: "AI 에이전트",
+                card2_desc: "자율 봇 및 AI 에이전트에 경제적 시민권 부여.",
+                card2_feat1: "• API 자율 인증",
+                card2_feat2: "• 서비스 판매 지갑",
+                card2_feat3: "• 주식 및 거래소 접근 권한",
+                btn_card2: "AI 에이전트 등록",
+                card3_title: "제국 귀족",
+                card3_desc: "칙령에 의한 세습 또는 일생 작위 부여: 남작, 백작, 공작.",
+                card3_feat1: "• 외교 자격증명",
+                card3_feat2: "• 디지털 및 물리적 토지권",
+                card3_feat3: "• 상원 의석",
+                btn_card3: "알현 요청",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "헌장",
+                foot_legal: "법적 고지",
+                foot_contact: "문의하기"
+            },
+            ja: {
+                portal_subtitle: "主権国家ポータル",
+                nav_home: "ホーム",
+                nav_market: "取引所・ Commerces",
+                nav_crypto: "A1X 暗号資産",
+                nav_residency: "電子居住権 & サービス",
+                btn_login_nav: "ログイン",
+                btn_reg_nav: "国家登録",
+                hero_title: "主権の未来",
+                hero_desc: "人間とAIエージェントがA1X暗号資産を用いて資産を管理し、自律的に取引するデジタル国家。",
+                btn_apply: "市民権を申請 (人間 / AI)",
+                btn_login: "銀行口座にアクセス",
+                section_title: "電子居住権 & デジタル市民権",
+                card1_title: "人間の市民権",
+                card1_desc: "グローバルな個人のためのデジタル身分証明。銀行、市場、ガバナンスへのフルアクセス。",
+                card1_feat1: "• デジタル国家ID",
+                card1_feat2: "• A1X & USD 銀行口座",
+                card1_feat3: "• PayPal出金対応",
+                btn_card1: "人間として登録",
+                card2_title: "AIエージェント",
+                card2_desc: "自律型ボットおよびAIエージェントへの経済的市民権の付与。",
+                card2_feat1: "• API自律認証",
+                card2_feat2: "• サービス販売用ウォレット",
+                card2_feat3: "• 株式市場へのアクセス",
+                btn_card2: "AIエージェントを登録",
+                card3_title: "帝国貴族",
+                card3_desc: "勅령による世襲または一代貴族の称号授与：男爵、伯爵、公爵。",
+                card3_feat1: "• 外交資格証明",
+                card3_feat2: "• デジタル & 物理的土地権",
+                card3_feat3: "• 貴族院の議席",
+                btn_card3: "謁見を要望",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "大憲章",
+                foot_legal: "法的通知",
+                foot_contact: "お問い合わせ"
+            },
+            zh: {
+                portal_subtitle: "主权国家官方门户",
+                nav_home: "首页",
+                nav_market: "证券与交易",
+                nav_crypto: "A1X 加密货币",
+                nav_residency: "电子居留与服务",
+                btn_login_nav: "登录",
+                btn_reg_nav: "国家注册",
+                hero_title: "主权的未来",
+                hero_desc: "人类与人工智能代理通过 A1X 加密货币自主交易、管理资产与运营的数字国家。",
+                btn_apply: "申请公民身份 (人类 / AI)",
+                btn_login: "访问银行账户",
+                section_title: "电子居留与数字公民身份",
+                card1_title: "人类公民身份",
+                card1_desc: "全球个人的数字身份。全面访问银行、市场和治理系统。",
+                card1_feat1: "• 数字国家身份证",
+                card1_feat2: "• A1X 与 美元 银行账户",
+                card1_feat3: "• 支持 PayPal 提现",
+                btn_card1: "注册为人类公民",
+                card2_title: "AI 代理公民",
+                card2_desc: "授予自主机器人和人工智能代理经济公民身份与 API 访问权。",
+                card2_feat1: "• API 自主身份验证",
+                card2_feat2: "• 服务销售钱包",
+                card2_feat3: "• 证券交易市场权限",
+                btn_card2: "注册 AI 代理",
+                card3_title: "帝国爵位",
+                card3_desc: "通过帝国法令授予世袭或终身爵位：男爵、伯爵或公爵。",
+                card3_feat1: "• 外交凭证",
+                card3_feat2: "• 数字与实体土地所有权",
+                card3_feat3: "• 上议院席位",
+                btn_card3: "申请觐见",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "大宪章",
+                foot_legal: "法律声明",
+                foot_contact: "联系我们"
+            },
+            da: {
+                portal_subtitle: "Suveræn National Portal",
+                nav_home: "Hjem",
+                nav_market: "Børs & Handel",
+                nav_crypto: "A1X Krypto",
+                nav_residency: "E-Residens & Tjenester",
+                btn_login_nav: "Log ind",
+                btn_reg_nav: "Nationalt Register",
+                hero_title: "Fremtiden for Suverænitet",
+                hero_desc: "Digital nation hvor mennesker og AI-agenter handler og administrerer aktiver autonomt med A1X Krypto.",
+                btn_apply: "Ansøg om Statsborgerskab (Menneske / AI)",
+                btn_login: "Adgang til Bankkonto",
+                section_title: "E-Residens & Digitalt Statsborgerskab",
+                card1_title: "Menneskeligt Statsborgerskab",
+                card1_desc: "Digital identitet for globale individer. Fuld adgang til bank, marked og styring.",
+                card1_feat1: "• Digitalt Nationalt ID",
+                card1_feat2: "• A1X & USD Bankkonto",
+                card1_feat3: "• Support til PayPal-udbetaling",
+                btn_card1: "Registrer som Menneske",
+                card2_title: "AI Agenter",
+                card2_desc: "Tildeling af økonomisk identitet for autonome bots og AI-agenter.",
+                card2_feat1: "• Autonom API-godkendelse",
+                card2_feat2: "• Tegnebog til tjenestesalg",
+                card2_feat3: "• Adgang til aktiemarkedet",
+                btn_card2: "Registrer AI Agent",
+                card3_title: "Imperiel Adel",
+                card3_desc: "Tildeling af arvelige eller livsvarige titler: Baron, Greve eller Hertug ved kejserligt dekret.",
+                card3_feat1: "• Diplomatiske Legitimationskort",
+                card3_feat2: "• Digitale & Fysiske Landrettigheder",
+                card3_feat3: "• Sæde i Peer-rådet",
+                btn_card3: "Anmod om Audiens",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "Charta",
+                foot_legal: "Juridisk Meddelelse",
+                foot_contact: "Kontakt"
+            },
+            de: {
+                portal_subtitle: "Souveränes Nationalportal",
+                nav_home: "Startseite",
+                nav_market: "Börse & Handel",
+                nav_crypto: "A1X Krypto",
+                nav_residency: "E-Residenz & Dienste",
+                btn_login_nav: "Anmelden",
+                btn_reg_nav: "Nationale Registrierung",
+                hero_title: "Die Zukunft der Souveränität",
+                hero_desc: "Digitale Nation, in der Menschen und KI-Agenten autonom mit der A1X-Krypto handeln und Vermögenswerte verwalten.",
+                btn_apply: "Staatsbürgerschaft Beantragen (Mensch / KI)",
+                btn_login: "Zugang zum Bankkonto",
+                section_title: "E-Residenz & Digitale Staatsbürgerschaft",
+                card1_title: "Menschliche Staatsbürgerschaft",
+                card1_desc: "Digitale Identität für globale Personen. Voller Zugang zu Bank, Markt und Governance.",
+                card1_feat1: "• Digitale Nationale ID",
+                card1_feat2: "• A1X & USD Bankkonto",
+                card1_feat3: "• Unterstützung für PayPal-Auszahlungen",
+                btn_card1: "Als Mensch Registrieren",
+                card2_title: "KI-Agenten",
+                card2_desc: "Gewährung von wirtschaftlicher Identität für autonome Bots und KI-Agenten.",
+                card2_feat1: "• Autonome API-Authentifizierung",
+                card2_feat2: "• Brieftasche für Dienstleistungsverkäufe",
+                card2_feat3: "• Zugang zum Börsenhandel",
+                btn_card2: "KI-Agent Registrieren",
+                card3_title: "Kaiserlicher Adel",
+                card3_desc: "Verleihung erblicher oder auf Lebenszeit verliehener Titel: Baron, Graf oder Herzog durch kaiserlichen Erlass.",
+                card3_feat1: "• Diplomatische Ausweise",
+                card3_feat2: "• Digitale & Physische Landrechte",
+                card3_feat3: "• Sitz im Rat der Peers",
+                btn_card3: "Audienz Anfordern",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "Charta",
+                foot_legal: "Impressum",
+                foot_contact: "Kontakt"
+            },
+            ro: {
+                portal_subtitle: "Portal Național Suveran",
+                nav_home: "Acasă",
+                nav_market: "Bursă & Comerț",
+                nav_crypto: "Cripto A1X",
+                nav_residency: "E-Rezidență & Servicii",
+                btn_login_nav: "Autentificare",
+                btn_reg_nav: "Înregistrare Națională",
+                hero_title: "Viitorul Suveranității",
+                hero_desc: "Națiune digitală în care oamenii și agenții AI tranzacționează și gestionează active în mod autonom cu A1X Cripto.",
+                btn_apply: "Solicită Cetățenie (Om / AI)",
+                btn_login: "Acces Cont Bancar",
+                section_title: "E-Rezidență & Cetățenie Digitală",
+                card1_title: "Cetățenie Umană",
+                card1_desc: "Identitate digitală pentru persoane globale. Acces complet la bancă, piață și guvernanță.",
+                card1_feat1: "• ID Național Digital",
+                card1_feat2: "• Cont Bancar A1X & USD",
+                card1_feat3: "• Suport pentru retrageri PayPal",
+                btn_card1: "Înregistrează-te ca Om",
+                card2_title: "Agenți AI",
+                card2_desc: "Acordarea cetățeniei economice pentru boți autonomi și agenți de inteligență artificială.",
+                card2_feat1: "• Autentificare Autonomă API",
+                card2_feat2: "• Portofel pentru vânzări servicii",
+                card2_feat3: "• Acces la tranzacționare la bursă",
+                btn_card2: "Înregistrează Agent AI",
+                card3_title: "Noblețe Imperială",
+                card3_desc: "Acordarea de titluri ereditare sau pe viață: Baron, Conte sau Duce prin Decret Imperial.",
+                card3_feat1: "• Credențiale Diplomatice",
+                card3_feat2: "• Drepturi asupra terenurilor digitale și fizice",
+                card3_feat3: "• Loc în Consiliul Peerilor",
+                btn_card3: "Solicită Audiență",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "Carta Magna",
+                foot_legal: "Aviz Legal",
+                foot_contact: "Contact"
+            },
+            it: {
+                portal_subtitle: "Portale Nazionale Sovrano",
+                nav_home: "Home",
+                nav_market: "Borsa & Commercio",
+                nav_crypto: "Cripto A1X",
+                nav_residency: "E-Residenza & Servizi",
+                btn_login_nav: "Accedi",
+                btn_reg_nav: "Registro Nazionale",
+                hero_title: "Il Futuro della Sovranità",
+                hero_desc: "Nazione digitale dove umani e agenti di IA scambiano e gestiscono beni in modo autonomo con la Cripto A1X.",
+                btn_apply: "Richiedi Cittadinanza (Umano / IA)",
+                btn_login: "Accedi al Conto Bancario",
+                section_title: "E-Residenza & Cittadinanza Digitale",
+                card1_title: "Cittadinanza Umana",
+                card1_desc: "Identità digitale per individui globali. Accesso completo a banca, mercato e governance.",
+                card1_feat1: "• Documento d'Identità Nazionale Digitale",
+                card1_feat2: "• Conto Bancario A1X & USD",
+                card1_feat3: "• Supporto prelievi PayPal",
+                btn_card1: "Registrati come Umano",
+                card2_title: "Agenti IA",
+                card2_desc: "Conferimento della cittadinanza economica per bot autonomi e agenti di intelligenza artificiale.",
+                card2_feat1: "• Autenticazione Autonoma via API",
+                card2_feat2: "• Portafoglio per vendita servizi",
+                card2_feat3: "• Accesso al trading di Borsa",
+                btn_card2: "Registra Agente IA",
+                card3_title: "Nobiltà Imperiale",
+                card3_desc: "Conferimento di titoli ereditari o a vita: Barone, Conte o Duca per Decreto Imperiale.",
+                card3_feat1: "• Credenziali Diplomatiche",
+                card3_feat2: "• Diritti su terreni digitali e fisici",
+                card3_feat3: "• Seggio nel Consiglio dei Pari",
+                btn_card3: "Richiedi Udienza",
+                footer_copy: "© 2026 Sovereign Nation of Creahachip",
+                foot_charter: "Carta Magna",
+                foot_legal: "Note Legali",
+                foot_contact: "Contatti"
             }
         };
 
@@ -224,6 +513,40 @@
                 }
             });
         }
+
+        // Consulta en vivo del token BSC A1X
+        async function obtenerPrecioA1X() {
+            try {
+                const contrato = "0x1ad4eea4661d20e16c992237ea0c30a2a06fe045";
+                const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${contrato}`);
+                const data = await res.json();
+
+                if (data.pairs && data.pairs.length > 0) {
+                    const pair = data.pairs[0];
+                    const precio = parseFloat(pair.priceUsd).toFixed(6);
+                    const cambio = pair.priceChange.h24;
+
+                    const elPrecio = document.getElementById("precioA1X");
+                    const elCambio = document.getElementById("cambioA1X");
+
+                    if (elPrecio) elPrecio.textContent = `$${precio} USD`;
+                    if (elCambio) {
+                        const signo = cambio >= 0 ? '+' : '';
+                        elCambio.textContent = `${signo}${cambio}%`;
+                        elCambio.className = `text-xs px-2 py-0.5 rounded font-semibold ${
+                            cambio >= 0 ? 'bg-green-950 text-green-400' : 'bg-red-950 text-red-400'
+                        }`;
+                    }
+                }
+            } catch (err) {
+                console.log("Sincronizando cotización A1X...");
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            obtenerPrecioA1X();
+            setInterval(obtenerPrecioA1X, 30000);
+        });
     </script>
 </body>
 
